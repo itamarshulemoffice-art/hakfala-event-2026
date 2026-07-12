@@ -48,7 +48,7 @@ function ORing({ scale = 1, white = false, ...props }: { scale?: number; white?:
 }
 
 /* --- ריחוף עדין + היענות לעכבר --- */
-function Cluster() {
+function Cluster({ s = 1 }: { s?: number }) {
   const group = useRef<THREE.Group>(null);
   useFrame((state) => {
     if (!group.current) return;
@@ -58,7 +58,7 @@ function Cluster() {
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={s}>
       <Float speed={1.4} rotationIntensity={0.6} floatIntensity={0.9}>
         <XMark scale={1.35} position={[0, 0.1, 0]} rotation={[0.2, 0.4, 0]} />
       </Float>
@@ -82,17 +82,22 @@ function Cluster() {
 }
 
 export default function Scene() {
+  // במובייל: אובייקטים קטנים ומרוחקים יותר כדי שהטקסט יישאר חד
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const clusterScale = isMobile ? 0.72 : 1;
+  const camZ = isMobile ? 9.5 : 8;
+
   return (
     <Canvas
       dpr={[1, 1.8]}
-      camera={{ position: [0, 0, 8], fov: 42 }}
+      camera={{ position: [0, 0, camZ], fov: 42 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ pointerEvents: "none" }}
     >
       <ambientLight intensity={0.35} />
       <spotLight position={[6, 8, 6]} angle={0.4} penumbra={1} intensity={2.4} color="#fff3d6" />
       <pointLight position={[-6, -4, 2]} intensity={1.4} color="#d4af37" />
-      <Cluster />
+      <Cluster s={clusterScale} />
       {/* סביבת תאורה ליצירת השתקפויות זהב — ללא קבצים חיצוניים */}
       <Environment resolution={128}>
         <Lightformer form="rect" intensity={3} position={[0, 4, -6]} scale={[10, 6, 1]} color="#fff6df" />

@@ -2,6 +2,7 @@ import { Reveal, Stagger, Item } from "./Reveal";
 import { CTA } from "./CTA";
 import { Icon } from "./Icons";
 import { XOStrip } from "./XOStrip";
+import { SpeakerPhoto } from "./SpeakerPhoto";
 import {
   PAIN_QUESTIONS,
   THREE_PILLARS,
@@ -33,10 +34,6 @@ function Punch({ children }: { children: React.ReactNode }) {
       </div>
     </Reveal>
   );
-}
-
-function initials(name: string) {
-  return name.trim().split(" ").slice(0, 2).map((w) => w[0]).join("");
 }
 
 /* ============================================================
@@ -283,19 +280,19 @@ export function YossiSection() {
         </Stagger>
 
         <Reveal>
-          <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-[var(--line)] bg-[#0a0a0a] p-7">
-            <div className="flex items-center gap-4">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full gold-fill text-xl font-extrabold text-black">יל</span>
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-[var(--line)] bg-[#0a0a0a] p-6 sm:p-7">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+              <SpeakerPhoto slug="yossi-levi" name="יוסי לוי" className="h-40 w-full flex-shrink-0 sm:h-32 sm:w-28" />
               <div>
-                <p className="font-extrabold text-white">מי זה יוסי לוי?</p>
+                <p className="text-xl font-extrabold text-white">מי זה יוסי לוי?</p>
                 <p className="text-sm text-[var(--gold-2)]">מנטור ומרצה מוביל בעולמות העסקים, השיווק והחדשנות</p>
+                <p className="mt-3 text-[var(--muted)]">
+                  במהלך שנות פעילותו הכשיר, הדריך וליווה אלפי בעלי עסקים, מנהלים ואנשי מקצוע.
+                  מביא לבמה שילוב נדיר בין ראייה עסקית רחבה, הבנה עמוקה של שיווק והיכרות עם
+                  השינויים שמשפיעים עכשיו על כל בעל עסק.
+                </p>
               </div>
             </div>
-            <p className="mt-4 text-[var(--muted)]">
-              במהלך שנות פעילותו הכשיר, הדריך וליווה אלפי בעלי עסקים, מנהלים ואנשי מקצוע.
-              מביא לבמה שילוב נדיר בין ראייה עסקית רחבה, הבנה עמוקה של שיווק והיכרות עם
-              השינויים שמשפיעים עכשיו על כל בעל עסק.
-            </p>
           </div>
         </Reveal>
 
@@ -338,17 +335,13 @@ export function PanelSection() {
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PANELISTS.map((p) => (
             <Item key={p.name}>
-              <div className="card h-full p-6">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-[rgba(212,175,55,0.4)] text-gold font-extrabold">
-                    {initials(p.name)}
-                  </span>
-                  <div>
-                    <h3 className="font-extrabold text-white leading-tight">{p.name}</h3>
-                    <p className="text-xs text-[var(--gold-2)] leading-tight mt-0.5">{p.role}</p>
-                  </div>
+              <div className="card h-full overflow-hidden">
+                <SpeakerPhoto slug={p.slug} name={p.name} rounded="rounded-none" className="aspect-[4/5] w-full" />
+                <div className="p-6">
+                  <h3 className="font-extrabold text-white leading-tight">{p.name}</h3>
+                  <p className="mt-1 text-xs text-[var(--gold-2)] leading-tight">{p.role}</p>
+                  <p className="mt-3 text-sm text-[var(--muted)]">{p.bio}</p>
                 </div>
-                <p className="mt-4 text-sm text-[var(--muted)]">{p.bio}</p>
               </div>
             </Item>
           ))}
@@ -413,20 +406,20 @@ export function ItamarSection() {
         <Punch>אני לא מדבר לאנשים. אני מפעיל אנשים.</Punch>
 
         <Reveal>
-          <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-[var(--line)] bg-[#0a0a0a] p-7">
-            <div className="flex items-center gap-4">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full gold-fill text-xl font-extrabold text-black">אש</span>
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-[var(--line)] bg-[#0a0a0a] p-6 sm:p-7">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+              <SpeakerPhoto slug="itamar-shulem" name="איתמר שולם" className="h-40 w-full flex-shrink-0 sm:h-32 sm:w-28" />
               <div>
-                <p className="font-extrabold text-white">מי זה איתמר שולם?</p>
+                <p className="text-xl font-extrabold text-white">מי זה איתמר שולם?</p>
                 <p className="text-sm text-[var(--gold-2)]">מייסד משרד הייעוץ האסטרטגי „הכפלה עסקית”</p>
+                <p className="mt-3 text-[var(--muted)]">
+                  אני והצוות שלי מלווים בעלי עסקים בתהליכים שנוגעים בכל מנגנוני העסק:
+                  אסטרטגיה, מכירות, שיווק, כוח אדם, פיננסים, מערכות, AI והטמעת תוכניות עבודה.
+                  אנחנו לא מאמינים בעוד ידע שנשאר בראש — אלא ביעדים מדידים, בכלים מוכחים,
+                  ובליווי שלא נותן לברוח. לא דיבורים. לא תיאוריות. עסק שנמצא בשליטה ויודע לאן הוא מתקדם.
+                </p>
               </div>
             </div>
-            <p className="mt-4 text-[var(--muted)]">
-              אני והצוות שלי מלווים בעלי עסקים בתהליכים שנוגעים בכל מנגנוני העסק:
-              אסטרטגיה, מכירות, שיווק, כוח אדם, פיננסים, מערכות, AI והטמעת תוכניות עבודה.
-              אנחנו לא מאמינים בעוד ידע שנשאר בראש — אלא ביעדים מדידים, בכלים מוכחים,
-              ובליווי שלא נותן לברוח. לא דיבורים. לא תיאוריות. עסק שנמצא בשליטה ויודע לאן הוא מתקדם.
-            </p>
           </div>
         </Reveal>
 

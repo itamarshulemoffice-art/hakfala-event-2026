@@ -26,13 +26,14 @@ export function Hero() {
       {/* גריד מחברת */}
       <div className="absolute inset-0 grid-bg grid-bg-fade" aria-hidden />
 
-      {/* סצנה תלת-ממדית */}
-      <div className="absolute inset-0 z-0" aria-hidden>
+      {/* סצנה תלת-ממדית — עמומה יותר במובייל לשמירה על קריאות */}
+      <div className="absolute inset-0 z-0 opacity-55 sm:opacity-100" aria-hidden>
         <Scene />
       </div>
 
-      {/* שכבת קריאוּת */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(70% 55% at 50% 55%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} aria-hidden />
+      {/* שכבת קריאוּת — חזקה יותר במובייל */}
+      <div className="absolute inset-0 z-0 pointer-events-none sm:hidden" style={{ background: "radial-gradient(75% 60% at 50% 42%, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.2) 100%)" }} aria-hidden />
+      <div className="absolute inset-0 z-0 pointer-events-none hidden sm:block" style={{ background: "radial-gradient(70% 55% at 50% 55%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 pt-8 pb-24 text-center">
         {/* לוגו */}
