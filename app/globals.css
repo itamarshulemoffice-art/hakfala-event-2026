@@ -244,6 +244,28 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
 /* reveal helper (fallback if JS off) */
 .reveal-init { opacity: 1; }
 
+/* ---------- טיפול duotone זהב-שחור לתמונות מרצים ---------- */
+.duotone { position: relative; background: #050505; overflow: hidden; }
+.duotone img {
+  filter: grayscale(1) contrast(1.06) brightness(0.98);
+  transition: filter .5s ease, transform .6s ease;
+}
+.duotone::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(155deg, #e7cf8f 0%, #d4af37 40%, #6b4e0c 100%);
+  mix-blend-mode: multiply;
+  transition: opacity .5s ease;
+}
+.duotone::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, #000 3%, rgba(0,0,0,0.15) 45%, transparent 70%);
+}
+.duotone:hover img { filter: grayscale(0) contrast(1) brightness(1); transform: scale(1.03); }
+.duotone:hover::before { opacity: 0; }
+.duotone > .cap { position: absolute; inset-inline: 0; bottom: 0; z-index: 3; padding: 1rem 1.1rem; }
+
 /* reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
