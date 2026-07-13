@@ -176,7 +176,7 @@ export default function Pisga() {
       {/* ===== 3. המשתתפים ===== */}
       <section className="section aura" style={{ background: "#020202" }}>
         <div className="wrap">
-          <Title>האנשים שבגללם אתם רוצים להיות בחדר</Title>
+          <Title>האנשים שבגללם אתם רוצים להיות שם</Title>
           <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PISGA_SPEAKERS.map((s) => (
               <Item key={s.slug}>
