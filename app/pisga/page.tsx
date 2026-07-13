@@ -116,7 +116,7 @@ export default function Pisga() {
       <header className="starfield relative overflow-hidden">
         <XOStrip />
         <div className="relative z-10 mx-auto max-w-6xl px-5 pt-9 pb-44 text-center sm:pb-52">
-          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-10 w-auto opacity-95" />
+          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-14 w-auto opacity-95" />
           <Reveal>
             <p className="mt-6 text-xs font-bold tracking-[0.4em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
             <div className="mt-4 flex justify-center">
