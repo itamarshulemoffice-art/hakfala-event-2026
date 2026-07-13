@@ -42,6 +42,8 @@ html {
   direction: rtl;
   scroll-behavior: smooth;
   background: var(--bg);
+  /* חגורת ביטחון: חוסם כל גלילה אופקית (iOS מתעלם מזה על body בלבד) */
+  overflow-x: hidden;
 }
 
 body {
@@ -93,6 +95,11 @@ h1, h2, h3 {
 /* ---------- זוהר זהב ---------- */
 .glow-gold {
   box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 0 40px -8px var(--gold-glow);
+}
+.aura {
+  position: relative;
+  /* הזוהר נמתח מעבר לרוחב המקטע — בלי clip הוא יוצר גלילה אופקית במובייל */
+  overflow-x: clip;
 }
 .aura::before {
   content: "";
