@@ -213,11 +213,16 @@ export default function Pisga() {
         <div className="wrap">
           <Title>האנשים שבגללם אתם רוצים להיות שם</Title>
           <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {PISGA_SPEAKERS.map((s) => (
-              <Item key={s.slug}>
-                <SpeakerDetail s={s} />
-              </Item>
-            ))}
+            {PISGA_SPEAKERS.map((s, i) => {
+              const isLastAlone = i === PISGA_SPEAKERS.length - 1;
+              return (
+                <Item key={s.slug} className={isLastAlone ? "sm:col-span-2 lg:col-span-1 lg:col-start-2" : undefined}>
+                  <div className={isLastAlone ? "mx-auto h-full w-full sm:max-w-[calc(50%-0.75rem)] lg:max-w-none" : "h-full"}>
+                    <SpeakerDetail s={s} />
+                  </div>
+                </Item>
+              );
+            })}
           </Stagger>
 
           <Reveal>
