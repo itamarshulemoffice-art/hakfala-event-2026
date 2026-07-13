@@ -43,7 +43,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="flex justify-center"
         >
-          <Image src="/logo-white.png" alt="הכפלה עסקית — איתמר שולם" width={150} height={64} priority className="h-14 w-auto opacity-95" />
+          <Image src="/logo-white.png" alt="הכפלה עסקית · איתמר שולם" width={150} height={64} priority className="h-14 w-auto opacity-95" />
         </motion.div>
 
         {/* תג תאריך */}
@@ -87,7 +87,7 @@ export function Hero() {
         >
           לערב אחד אנחנו מרכזים בבית שמש את האנשים, הידע, החדשנות והחיבורים
           שיכולים לקחת את העסק שלך לרמה הבאה. האירוע העסקי שנבנה במיוחד לבעלי
-          עסקים במגזר החרדי — שרוצים לקחת שליטה, לייצר סדר ולבנות מנגנונים
+          עסקים במגזר החרדי, שרוצים לקחת שליטה, לייצר סדר ולבנות מנגנונים
           שמביאים צמיחה אמיתית.
         </motion.p>
 

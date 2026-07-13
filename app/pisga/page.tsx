@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: "פסגת העסקים החרדית 2026 | 20.07 · בית שמש",
   description:
-    "הכנס השנתי למנהיגות, חדשנות וצמיחה עסקית. השמות שמובילים את עולם העסקים החרדי — על במה אחת. מגיעים בגלל השמות, יוצאים עם כיוון ברור לעסק.",
+    "הכנס השנתי למנהיגות, חדשנות וצמיחה עסקית. השמות שמובילים את עולם העסקים החרדי, על במה אחת. מגיעים בגלל השמות, יוצאים עם כיוון ברור לעסק.",
 };
 
 /* עזרי layout */
@@ -156,12 +156,12 @@ export default function Pisga() {
               יש בעלי עסקים <span className="text-gold">שעובדים קשה.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-center text-lg text-[var(--muted)]">
-              רודפים אחרי לקוחות. מכבים שריפות. סוגרים חודש — ופותחים עוד חודש באותו לחץ.
+              רודפים אחרי לקוחות. מכבים שריפות. סוגרים חודש, ופותחים עוד חודש באותו לחץ.
             </p>
           </Reveal>
           <Reveal>
             <p className="mx-auto mt-9 max-w-2xl text-center text-xl sm:text-2xl font-extrabold leading-snug text-white">
-              אבל יש בעלי עסקים שעוצרים רגע, מבינים מה תוקע אותם —
+              אבל יש בעלי עסקים שעוצרים רגע, מבינים מה תוקע אותם,
               <br />
               <span className="text-gold">ובונים מנגנון שמתחיל לקחת את העסק קדימה.</span>
             </p>
@@ -254,7 +254,7 @@ export default function Pisga() {
       {/* ===== 5. הרצאת יוסי לוי ===== */}
       <SpotlightSection
         eyebrow="הרצאת הפתיחה · יוסי לוי, מהמנטורים העסקיים המובילים בישראל · 60 דקות"
-        title="„אוטומרקי” — חשיפת מערכת השיווק האוטונומית הראשונה"
+        title="„אוטומרקי”: חשיפת מערכת השיווק האוטונומית הראשונה"
         img="/speakers/yossi-levi.jpeg"
         name="יוסי לוי"
         points={PISGA_YOSSI_POINTS}

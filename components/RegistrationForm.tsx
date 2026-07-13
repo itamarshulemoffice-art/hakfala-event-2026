@@ -151,7 +151,7 @@ export function RegistrationForm() {
                   </h2>
                   <p className="mx-auto mt-4 max-w-xl text-[var(--muted)]">
                     עשיתם את הצעד הראשון בדרך לערב שיכול לשנות את הדרך שבה אתם מנהלים ומגדילים
-                    את העסק. כדי להשלים את שריון המקום — המשיכו לרכישת הכרטיס.
+                    את העסק. כדי להשלים את שריון המקום, המשיכו לרכישת הכרטיס.
                   </p>
 
                   <div className="mx-auto mt-7 max-w-md rounded-2xl border border-[var(--line)] bg-[#0c0c0c] p-5 text-right">
