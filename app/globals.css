@@ -244,6 +244,44 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
 /* reveal helper (fallback if JS off) */
 .reveal-init { opacity: 1; }
 
+/* ---------- שדה כוכבים (פסגה / חלל) ---------- */
+.starfield {
+  background-color: #000;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 18%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.2px 1.2px at 27% 42%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.8px 1.8px at 41% 12%, rgba(255,246,223,0.9), transparent),
+    radial-gradient(1px 1px at 55% 33%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 68% 22%, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1.1px 1.1px at 79% 48%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.7px 1.7px at 88% 15%, rgba(255,246,223,0.85), transparent),
+    radial-gradient(1px 1px at 16% 62%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.4px 1.4px at 34% 74%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.2px 1.2px at 62% 66%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.6px 1.6px at 83% 71%, rgba(255,246,223,0.8), transparent),
+    radial-gradient(1px 1px at 48% 55%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.3px 1.3px at 7% 38%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.1px 1.1px at 93% 40%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 22% 88%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.2px 1.2px at 72% 86%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(ellipse 60% 45% at 50% 22%, rgba(120,92,20,0.22), transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% -10%, rgba(212,175,55,0.10), transparent 60%);
+  background-repeat: no-repeat;
+}
+.twinkle { animation: twinkle 4s ease-in-out infinite; }
+@keyframes twinkle { 0%,100% { opacity: 1; } 50% { opacity: .55; } }
+
+/* זוהר כוכב הזהב של הפסגה */
+.star-glow { filter: drop-shadow(0 0 22px rgba(212,175,55,0.55)) drop-shadow(0 0 60px rgba(212,175,55,0.3)); }
+
+/* תווית זהב של מרצה (בסגנון הפלייר) */
+.nameplate {
+  background: var(--gold-grad);
+  color: #171006;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px -10px var(--gold-glow), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
 /* ---------- טיפול duotone זהב-שחור לתמונות מרצים ---------- */
 .duotone { position: relative; background: #050505; overflow: hidden; }
 .duotone img {

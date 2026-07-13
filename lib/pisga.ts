@@ -13,12 +13,13 @@ export const PISGA_EVENT = {
   dateISO: "2026-07-20T16:00:00+03:00",
 };
 
-// יוסי לוי ראשון, איתמר שולם מיד אחריו — שניהם בגודל דומה
+// יוסי לוי ראשון, איתמר שולם מיד אחריו — שניהם מודגשים (מרצי הדגל)
 export const PISGA_SPEAKERS = [
   {
     slug: "yossi-levi",
     img: "/speakers/yossi-levi.jpeg",
     name: "יוסי לוי",
+    pill: "שיווק, חדשנות ו-AI",
     title: "מנטור עסקי ומרצה מוביל · שיווק, חדשנות ו-AI",
     authority: "הכשיר וליווה אלפי בעלי עסקים, מנהלים ואנשי מקצוע.",
     brings: "הרצאת דגל בת 90 דקות: כיצד AI משנה את חוקי השיווק — ומה כל בעל עסק חייב לעשות עכשיו.",
@@ -28,6 +29,7 @@ export const PISGA_SPEAKERS = [
     slug: "itamar-shulem",
     img: "/speakers/itamar-shulem.png",
     name: "איתמר שולם",
+    pill: "מייסד הכפלה עסקית",
     title: "מייסד הכפלה עסקית · יוזם הפסגה",
     authority: "מלווה בעלי עסקים בתהליכי הכפלה בכל מנגנוני העסק.",
     brings: "הרצאה מעשית: זיהוי היעד, צוואר הבקבוק והצעד הבא בעסק שלכם.",
@@ -36,7 +38,8 @@ export const PISGA_SPEAKERS = [
   {
     slug: "moshe-levinger",
     img: "/speakers/moshe-levinger.png",
-    name: "מוישי לווינגר",
+    name: "מוישי לוינגר",
+    pill: "Smart Click · פרסום דיגיטלי",
     title: "בעלים של Smart Click · פרסום דיגיטלי",
     authority: "מהמשרדים המובילים בפרסום הדיגיטלי במגזר החרדי.",
     brings: "ניסיון בעבודה עם המותגים הגדולים במשק ובהבנת הקהל החרדי.",
@@ -44,7 +47,8 @@ export const PISGA_SPEAKERS = [
   {
     slug: "shlomo-parush",
     img: "/speakers/shlomo-parush.png",
-    name: "שלמה פרוש",
+    name: "שלמה פורוש",
+    pill: "מייסד עמותת תבונה",
     title: "מייסד ומנכ״ל עמותת תבונה",
     authority: "מכשיר ומלווה עשרות אלפי אנשים בכלכלה ופיננסים.",
     brings: "ראייה רחבה של אחריות כלכלית והזדמנויות צמיחה במגזר.",
@@ -53,6 +57,7 @@ export const PISGA_SPEAKERS = [
     slug: "israel-bograd",
     img: "/speakers/israel-bograd.png",
     name: "ישראל בוגרד",
+    pill: "מייסד „סטטוס למכירה”",
     title: "אושיית רשת · מייסד „סטטוס למכירה”",
     authority: "ליווה מאות בעלי עסקים בבניית נוכחות, קהל ואוטוריטה.",
     brings: "איך הופכים תשומת לב לאוטוריטה שמייצרת תוצאות.",
@@ -61,9 +66,19 @@ export const PISGA_SPEAKERS = [
     slug: "shalom-bukobza",
     img: "/speakers/shalom-bukobza.jpg",
     name: "שלום בוקובזה",
+    pill: "מייסד מיזם X",
     title: "מייסד ומנכ״ל מיזם X",
     authority: "ליווה מאות בעלי עסקים במגזר החרדי בפיתוח עסקי.",
     brings: "תובנות מהשטח על צמיחה ופיתוח עסקי בפועל.",
+  },
+  {
+    slug: "pesach-parkov",
+    img: "/speakers/pesach-parkov.jpg",
+    name: "פסח פרקוף",
+    pill: "אוטומציות ומערכות עסקיות",
+    title: "יועץ עסקי ותיק · מרצה ומוביל חדשנות",
+    authority: "ליווה מאות בעלי עסקים בתהליכי בנייה וצמיחה.",
+    brings: "חיבור בין ניסיון עסקי עמוק לעולם האוטומציה והמערכות.",
   },
 ];
 

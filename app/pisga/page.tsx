@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, Stagger, Item } from "@/components/Reveal";
 import { SpeakerImage } from "@/components/pisga/SpeakerImage";
+import { SpeakerCircle } from "@/components/pisga/SpeakerCircle";
 import { PisgaForm } from "@/components/pisga/PisgaForm";
 import { PisgaSticky } from "@/components/pisga/PisgaSticky";
 import { Countdown } from "@/components/Countdown";
@@ -24,9 +25,6 @@ export const metadata: Metadata = {
   description:
     "הכנס השנתי למנהיגות, חדשנות וצמיחה עסקית. השמות שמובילים את עולם העסקים החרדי — על במה אחת. מגיעים בגלל השמות, יוצאים עם כיוון ברור לעסק.",
 };
-
-const featured = PISGA_SPEAKERS.filter((s) => s.featured);
-const rest = PISGA_SPEAKERS.filter((s) => !s.featured);
 
 /* עזרי layout */
 function CTAButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -71,10 +69,43 @@ function Title({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FaceCaption({ name, small = false }: { name: string; small?: boolean }) {
+/* כוכב הזהב של הפסגה */
+function StarEmblem() {
   return (
-    <div className="cap">
-      <p className={`font-extrabold text-white ${small ? "text-base" : "text-lg"}`}>{name}</p>
+    <svg viewBox="0 0 100 100" width="70" height="70" className="star-glow twinkle" aria-hidden>
+      <defs>
+        <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#f7ead0" />
+          <stop offset="0.5" stopColor="#d4af37" />
+          <stop offset="1" stopColor="#8a6410" />
+        </linearGradient>
+      </defs>
+      <path d="M50 3 L61.8 37.6 L98 38 L68.8 59.6 L79.6 94.4 L50 72.8 L20.4 94.4 L31.2 59.6 L2 38 L38.2 37.6 Z" fill="url(#starGrad)" />
+    </svg>
+  );
+}
+
+/* צללית הרים בתחתית ההירו (כמו בפלייר) */
+function Mountains() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0" aria-hidden>
+      <svg viewBox="0 0 1440 240" preserveAspectRatio="none" className="h-28 w-full sm:h-40">
+        <path d="M0 240 L0 150 L180 60 L360 140 L520 40 L700 150 L860 80 L1040 165 L1220 70 L1440 150 L1440 240 Z" fill="#050505" />
+        <path d="M0 240 L0 185 L230 115 L440 180 L650 100 L850 180 L1060 125 L1270 185 L1440 125 L1440 240 Z" fill="#0b0906" />
+      </svg>
+    </div>
+  );
+}
+
+/* תמונה עגולה על תווית זהב — כרטיס מרצה קומפקטי בהירו */
+function SpeakerPill({ s }: { s: (typeof PISGA_SPEAKERS)[number] }) {
+  return (
+    <div className="flex w-[7.5rem] flex-col items-center sm:w-32">
+      <SpeakerCircle img={s.img} name={s.name} className="w-[4.75rem] sm:w-[5.25rem]" />
+      <div className="nameplate -mt-3 w-full px-2 pb-2 pt-4 text-center">
+        <p className="text-[0.9rem] font-extrabold leading-tight">{s.name}</p>
+        <p className="mt-0.5 text-[10px] font-semibold leading-tight opacity-70">{s.pill}</p>
+      </div>
     </div>
   );
 }
@@ -83,54 +114,40 @@ export default function Pisga() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <header className="relative overflow-hidden" style={{ background: "radial-gradient(120% 90% at 50% -10%, #14110a 0%, #000 62%)" }}>
-        <div className="absolute inset-0 grid-bg grid-bg-fade" aria-hidden />
+      <header className="starfield relative overflow-hidden">
         <XOStrip />
-        <div className="relative z-10 mx-auto max-w-6xl px-5 pt-10 pb-16 text-center">
-          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-11 w-auto opacity-95" />
+        <div className="relative z-10 mx-auto max-w-6xl px-5 pt-9 pb-28 text-center">
+          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-10 w-auto opacity-95" />
           <Reveal>
-            <p className="mt-8 text-sm font-bold tracking-wide text-[var(--gold-2)]">{E.brandLine}</p>
-            <h1 className="mt-3 font-extrabold tracking-tight" style={{ fontSize: "clamp(2.4rem,7vw,4.8rem)", lineHeight: 1.02 }}>
-              פסגת העסקים <span className="text-gold">החרדית 2026</span>
+            <p className="mt-7 text-xs font-bold tracking-[0.35em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
+            <div className="mt-6 flex justify-center"><StarEmblem /></div>
+            <h1 className="mt-6 font-extrabold tracking-tight text-white" style={{ fontSize: "clamp(1.7rem,4.4vw,3rem)", lineHeight: 1.12 }}>
+              השמות המובילים בעולם העסקים החרדי
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg sm:text-xl text-[#d8d4cd]">{E.subtitle}</p>
-            <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg font-bold text-white">{E.punch}</p>
+            <p className="mt-1 font-extrabold text-gold" style={{ fontSize: "clamp(3rem,11vw,6rem)", lineHeight: 1 }}>
+              על במה אחת
+            </p>
+            <p className="mx-auto mt-7 max-w-2xl text-base sm:text-lg text-[#d8d4cd]">
+              ערב אחד שיחבר אתכם לאנשים, לרעיונות ולהחלטות שיכולים לקחת את העסק שלכם לרמה הבאה.
+            </p>
           </Reveal>
 
-          {/* פנים המרצים — הלב של הדף */}
-          <div className="mt-12">
-            <Stagger className="mx-auto grid max-w-3xl grid-cols-2 gap-4">
-              {featured.map((s) => (
-                <Item key={s.slug}>
-                  <SpeakerImage img={s.img} name={s.name} className="aspect-[4/5] w-full">
-                    <FaceCaption name={s.name} />
-                  </SpeakerImage>
-                </Item>
-              ))}
-            </Stagger>
-            <Stagger className="mx-auto mt-4 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
-              {rest.map((s) => (
-                <Item key={s.slug}>
-                  <SpeakerImage img={s.img} name={s.name} className="aspect-[4/5] w-full" rounded="rounded-xl">
-                    <FaceCaption name={s.name} small />
-                  </SpeakerImage>
-                </Item>
-              ))}
-            </Stagger>
-          </div>
+          {/* גלריית המרצים — בסגנון הפלייר: תמונה עגולה על תווית זהב */}
+          <Stagger className="mx-auto mt-14 flex max-w-6xl flex-wrap justify-center gap-x-3 gap-y-9 sm:gap-x-5">
+            {PISGA_SPEAKERS.map((s) => (
+              <Item key={s.slug}>
+                <SpeakerPill s={s} />
+              </Item>
+            ))}
+          </Stagger>
 
           <Reveal>
-            <div className="mt-11 flex justify-center">
-              <Countdown />
-            </div>
-            <div className="mt-8">
-              <CTAButton>אני רוצה להיות בפסגה</CTAButton>
-            </div>
-            <div className="mt-8">
-              <EventMeta />
-            </div>
+            <div className="mt-16 flex justify-center"><Countdown /></div>
+            <div className="mt-8"><CTAButton>אני רוצה להיות בפסגה</CTAButton></div>
+            <div className="mt-8"><EventMeta /></div>
           </Reveal>
         </div>
+        <Mountains />
       </header>
 
       {/* ===== 2. מה יוצא לכם מזה ===== */}
@@ -159,16 +176,8 @@ export default function Pisga() {
       <section className="section aura" style={{ background: "#020202" }}>
         <div className="wrap">
           <Title>האנשים שבגללם אתם רוצים להיות בחדר</Title>
-
-          <Stagger className="mt-12 grid gap-6 md:grid-cols-2">
-            {featured.map((s) => (
-              <Item key={s.slug}>
-                <SpeakerDetail s={s} big />
-              </Item>
-            ))}
-          </Stagger>
-          <Stagger className="mt-6 grid gap-6 sm:grid-cols-2">
-            {rest.map((s) => (
+          <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PISGA_SPEAKERS.map((s) => (
               <Item key={s.slug}>
                 <SpeakerDetail s={s} />
               </Item>
@@ -318,22 +327,16 @@ export default function Pisga() {
   );
 }
 
-/* כרטיס מרצה מפורט */
-function SpeakerDetail({ s, big = false }: { s: (typeof PISGA_SPEAKERS)[number]; big?: boolean }) {
+/* כרטיס מרצה מפורט — תמונה עגולה + טקסט */
+function SpeakerDetail({ s }: { s: (typeof PISGA_SPEAKERS)[number] }) {
   return (
-    <div className="card h-full overflow-hidden sm:flex">
-      <SpeakerImage
-        img={s.img}
-        name={s.name}
-        rounded="rounded-none"
-        className={`w-full flex-shrink-0 ${big ? "aspect-[5/4] sm:aspect-auto sm:w-52" : "aspect-[5/4] sm:aspect-auto sm:w-40"}`}
-      />
-      <div className="p-6">
-        <h3 className={`font-extrabold text-white ${big ? "text-2xl" : "text-xl"}`}>{s.name}</h3>
-        <p className="mt-1 text-sm text-[var(--gold-2)]">{s.title}</p>
-        <p className="mt-3 text-sm text-[#cfcbc3]">{s.authority}</p>
-        <p className="mt-2 text-sm text-[var(--muted)]">{s.brings}</p>
-      </div>
+    <div className="card flex h-full flex-col items-center p-7 text-center">
+      <SpeakerCircle img={s.img} name={s.name} className="w-28" />
+      <h3 className="mt-5 text-xl font-extrabold text-white">{s.name}</h3>
+      <p className="mt-1 text-sm text-[var(--gold-2)]">{s.title}</p>
+      <hr className="hr-gold mt-4 w-12" />
+      <p className="mt-4 text-sm text-[#cfcbc3]">{s.authority}</p>
+      <p className="mt-2 text-sm text-[var(--muted)]">{s.brings}</p>
     </div>
   );
 }
