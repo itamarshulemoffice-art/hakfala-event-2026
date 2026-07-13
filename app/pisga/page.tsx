@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal, Stagger, Item } from "@/components/Reveal";
 import { SpeakerImage } from "@/components/pisga/SpeakerImage";
 import { SpeakerCircle } from "@/components/pisga/SpeakerCircle";
+import { SummitEmblem } from "@/components/pisga/SummitEmblem";
 import { PisgaForm } from "@/components/pisga/PisgaForm";
 import { PisgaSticky } from "@/components/pisga/PisgaSticky";
 import { Countdown } from "@/components/Countdown";
@@ -69,29 +70,27 @@ function Title({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* כוכב הזהב של הפסגה */
-function StarEmblem() {
-  return (
-    <svg viewBox="0 0 100 100" width="70" height="70" className="star-glow twinkle" aria-hidden>
-      <defs>
-        <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f7ead0" />
-          <stop offset="0.5" stopColor="#d4af37" />
-          <stop offset="1" stopColor="#8a6410" />
-        </linearGradient>
-      </defs>
-      <path d="M50 3 L61.8 37.6 L98 38 L68.8 59.6 L79.6 94.4 L50 72.8 L20.4 94.4 L31.2 59.6 L2 38 L38.2 37.6 Z" fill="url(#starGrad)" />
-    </svg>
-  );
-}
-
-/* צללית הרים בתחתית ההירו (כמו בפלייר) */
+/* צללית הרים אטמוספרית בתחתית ההירו — ערפל וזוהר זהב על הפסגה */
 function Mountains() {
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0" aria-hidden>
-      <svg viewBox="0 0 1440 240" preserveAspectRatio="none" className="h-28 w-full sm:h-40">
-        <path d="M0 240 L0 150 L180 60 L360 140 L520 40 L700 150 L860 80 L1040 165 L1220 70 L1440 150 L1440 240 Z" fill="#050505" />
-        <path d="M0 240 L0 185 L230 115 L440 180 L650 100 L850 180 L1060 125 L1270 185 L1440 125 L1440 240 Z" fill="#0b0906" />
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1]" aria-hidden>
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="h-40 w-full sm:h-56">
+        <defs>
+          <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="rgba(212,175,55,0)" />
+            <stop offset="0.55" stopColor="rgba(139,101,20,0.10)" />
+            <stop offset="1" stopColor="rgba(212,175,55,0.18)" />
+          </linearGradient>
+          <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#2a1f0b" />
+            <stop offset="1" stopColor="#0c0a06" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="110" width="1440" height="210" fill="url(#haze)" />
+        <path d="M0 320 L0 178 L220 96 L430 166 L640 80 L860 166 L1080 100 L1300 172 L1440 110 L1440 320 Z" fill="url(#ridgeFar)" />
+        <path d="M0 178 L220 96 L430 166 L640 80 L860 166 L1080 100 L1300 172 L1440 110" fill="none" stroke="rgba(212,175,55,0.28)" strokeWidth="1.5" />
+        <path d="M0 320 L0 212 L200 150 L400 206 L600 140 L820 210 L1040 156 L1260 216 L1440 160 L1440 320 Z" fill="#080706" />
+        <path d="M0 320 L0 256 L260 206 L520 256 L760 200 L1000 256 L1240 210 L1440 250 L1440 320 Z" fill="#020202" />
       </svg>
     </div>
   );
@@ -116,15 +115,17 @@ export default function Pisga() {
       {/* ===== HERO ===== */}
       <header className="starfield relative overflow-hidden">
         <XOStrip />
-        <div className="relative z-10 mx-auto max-w-6xl px-5 pt-9 pb-28 text-center">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 pt-9 pb-44 text-center sm:pb-52">
           <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-10 w-auto opacity-95" />
           <Reveal>
-            <p className="mt-7 text-xs font-bold tracking-[0.35em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
-            <div className="mt-6 flex justify-center"><StarEmblem /></div>
-            <h1 className="mt-6 font-extrabold tracking-tight text-white" style={{ fontSize: "clamp(1.7rem,4.4vw,3rem)", lineHeight: 1.12 }}>
+            <p className="mt-6 text-xs font-bold tracking-[0.4em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
+            <div className="mt-4 flex justify-center">
+              <SummitEmblem className="h-auto w-60 sm:w-80" />
+            </div>
+            <h1 className="mt-3 font-extrabold tracking-tight text-white" style={{ fontSize: "clamp(1.6rem,4.2vw,2.9rem)", lineHeight: 1.14 }}>
               השמות המובילים בעולם העסקים החרדי
             </h1>
-            <p className="mt-1 font-extrabold text-gold" style={{ fontSize: "clamp(3rem,11vw,6rem)", lineHeight: 1 }}>
+            <p className="mt-1 font-extrabold text-gold" style={{ fontSize: "clamp(3.2rem,12vw,6.8rem)", lineHeight: 0.98, letterSpacing: "-0.02em" }}>
               על במה אחת
             </p>
             <p className="mx-auto mt-7 max-w-2xl text-base sm:text-lg text-[#d8d4cd]">
