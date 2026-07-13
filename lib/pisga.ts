@@ -11,6 +11,7 @@ export const PISGA_EVENT = {
   time: "16:00",
   location: "בית שמש",
   dateISO: "2026-07-20T16:00:00+03:00",
+  ticketsUrl: "https://tickchak.co.il/109508",
 };
 
 // יוסי לוי ראשון, איתמר שולם מיד אחריו — שניהם מודגשים (מרצי הדגל)

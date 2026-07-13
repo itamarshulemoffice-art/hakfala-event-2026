@@ -32,7 +32,7 @@ export function PisgaSticky() {
                 <p className="truncate text-sm font-extrabold text-white">פסגת העסקים החרדית 2026</p>
                 <p className="truncate text-xs text-[var(--muted)]">{PISGA_EVENT.date} · {PISGA_EVENT.location} · מקומות מוגבלים</p>
               </div>
-              <a href="#register" className="btn-gold shrink-0 whitespace-nowrap" style={{ padding: "0.6rem 1.2rem", fontSize: "0.9rem" }}>
+              <a href={PISGA_EVENT.ticketsUrl} target="_blank" rel="noopener" className="btn-gold shrink-0 whitespace-nowrap" style={{ padding: "0.6rem 1.2rem", fontSize: "0.9rem" }}>
                 <Icon name="arrow" width={16} height={16} style={{ transform: "scaleX(-1)" }} />
                 לשריון מקום
               </a>

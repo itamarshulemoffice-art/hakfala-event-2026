@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 /* עזרי layout */
 function CTAButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <a href="#register" className={`btn-gold ${className}`}>
+    <a href={E.ticketsUrl} target="_blank" rel="noopener" className={`btn-gold ${className}`}>
       <Icon name="arrow" width={20} height={20} style={{ transform: "scaleX(-1)" }} />
       {children}
     </a>

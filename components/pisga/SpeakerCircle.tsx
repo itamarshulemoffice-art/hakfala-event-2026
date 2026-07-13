@@ -36,7 +36,6 @@ export function SpeakerCircle({
             sizes="200px"
             className="object-cover object-top"
             onError={() => setFailed(true)}
-            unoptimized
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-b from-[#1a1710] to-[#070707]">

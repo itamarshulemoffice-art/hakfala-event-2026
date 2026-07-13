@@ -8,8 +8,10 @@ function initials(name: string) {
   return name.trim().split(" ").slice(0, 2).map((w) => w[0]).join("");
 }
 
+const EXTS = ["jpg", "jpeg", "png", "webp"];
+
 /**
- * מציג תמונת מרצה מ-`public/speakers/<slug>.jpg`.
+ * מציג תמונת מרצה מ-`public/speakers/<slug>.<ext>` — מנסה jpg/jpeg/png/webp לפי הסדר.
  * אם אין תמונה — מוצג עיגול/מסגרת זהב עם ראשי התיבות (placeholder ממותג).
  * להוספת תמונה: פשוט שים קובץ בשם ה-slug בתיקייה public/speakers/ — אין צורך לגעת בקוד.
  */
@@ -18,15 +20,14 @@ export function SpeakerPhoto({
   name,
   className = "",
   rounded = "rounded-2xl",
-  ext = "jpg",
 }: {
   slug: string;
   name: string;
   className?: string;
   rounded?: string;
-  ext?: string;
 }) {
-  const [failed, setFailed] = useState(false);
+  const [extIdx, setExtIdx] = useState(0);
+  const failed = extIdx >= EXTS.length;
 
   return (
     <div
@@ -34,13 +35,12 @@ export function SpeakerPhoto({
     >
       {!failed ? (
         <Image
-          src={`/speakers/${slug}.${ext}`}
+          src={`/speakers/${slug}.${EXTS[extIdx]}`}
           alt={name}
           fill
           sizes="(max-width: 768px) 100vw, 360px"
           className="object-cover object-top"
-          onError={() => setFailed(true)}
-          unoptimized
+          onError={() => setExtIdx((i) => i + 1)}
         />
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1.5">

@@ -47,7 +47,6 @@ export function SpeakerImage({
         sizes="(max-width: 768px) 50vw, 400px"
         className="object-cover object-top"
         onError={() => setFailed(true)}
-        unoptimized
       />
       {children}
     </div>
