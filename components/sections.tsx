@@ -248,12 +248,15 @@ export function YossiSection() {
       <div className="wrap">
         <Reveal>
           <div className="text-center">
-            <Tag>17:00 · הרצאה מרכזית · 90 דקות</Tag>
+            <Tag>17:00 · הרצאה מרכזית · 60 דקות</Tag>
             <h2 className="mt-5 font-extrabold" style={{ fontSize: "clamp(2rem,5vw,3.2rem)" }}>
               <span className="text-gold">יוסי לוי</span>
             </h2>
+            <p className="mx-auto mt-3 text-sm font-bold tracking-widest text-[var(--gold-2)]">
+              מהמנטורים העסקיים המובילים בישראל
+            </p>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-[#d8d4cd]">
-              שיווק, עסקים ו-AI בעולם שבו אנשי השיווק נעלמים מהמפה
+              „אוטומרקי” — חשיפת מערכת השיווק האוטונומית הראשונה
             </p>
           </div>
         </Reveal>
@@ -261,7 +264,7 @@ export function YossiSection() {
         <Reveal>
           <p className="mx-auto mt-8 max-w-2xl text-center text-[var(--muted)]">
             השאלה אינה האם AI ישפיע על העסק שלכם. השאלה היא אם תשתמשו בו כדי להוביל —
-            או שתגלו מאוחר מדי שהשוק התקדם בלעדיכם. בהרצאה סוחפת בת שעה וחצי יוסי לוי יחשוף:
+            או שתגלו מאוחר מדי שהשוק התקדם בלעדיכם. בהרצאה סוחפת בת שעה יוסי לוי יחשוף:
           </p>
         </Reveal>
 

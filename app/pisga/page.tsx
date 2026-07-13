@@ -253,8 +253,8 @@ export default function Pisga() {
 
       {/* ===== 5. הרצאת יוסי לוי ===== */}
       <SpotlightSection
-        eyebrow="הרצאת הפתיחה · יוסי לוי · 90 דקות"
-        title="איך משווקים בעולם שבו AI משנה הכול?"
+        eyebrow="הרצאת הפתיחה · יוסי לוי, מהמנטורים העסקיים המובילים בישראל · 60 דקות"
+        title="„אוטומרקי” — חשיפת מערכת השיווק האוטונומית הראשונה"
         img="/speakers/yossi-levi.jpeg"
         name="יוסי לוי"
         points={PISGA_YOSSI_POINTS}
