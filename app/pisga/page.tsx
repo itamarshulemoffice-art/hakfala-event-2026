@@ -19,6 +19,7 @@ import {
   PISGA_ITAMAR_OUTCOMES,
   PISGA_CONNECT,
   PISGA_OFFER,
+  PISGA_MORE,
 } from "@/lib/pisga";
 
 export const metadata: Metadata = {
@@ -150,6 +151,44 @@ export default function Pisga() {
         </div>
         <Mountains />
       </header>
+
+      {/* ===== 1.5 שני סוגים של בעלי עסקים — הקופי הארוך ===== */}
+      <section className="section" style={{ background: "#030303" }}>
+        <div className="wrap-narrow">
+          <Reveal>
+            <h2 className="text-center font-extrabold" style={{ fontSize: "clamp(1.7rem,4.5vw,2.7rem)" }}>
+              יש בעלי עסקים <span className="text-gold">שעובדים קשה.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-center text-lg text-[var(--muted)]">
+              רודפים אחרי לקוחות. מכבים שריפות. סוגרים חודש — ופותחים עוד חודש באותו לחץ.
+            </p>
+          </Reveal>
+          <Reveal>
+            <p className="mx-auto mt-9 max-w-2xl text-center text-xl sm:text-2xl font-extrabold leading-snug text-white">
+              אבל יש בעלי עסקים שעוצרים רגע, מבינים מה תוקע אותם —
+              <br />
+              <span className="text-gold">ובונים מנגנון שמתחיל לקחת את העסק קדימה.</span>
+            </p>
+          </Reveal>
+          <Reveal>
+            <p className="mt-12 text-center text-[var(--muted)]">
+              פסגת העסקים החרדית 2026 נבנתה בדיוק בשביל בעלי עסקים שרוצים יותר:
+            </p>
+          </Reveal>
+          <Stagger className="mx-auto mt-5 flex max-w-2xl flex-wrap justify-center gap-2.5">
+            {PISGA_MORE.map((m) => (
+              <Item key={m}>
+                <span className="rounded-full border border-[rgba(212,175,55,0.35)] bg-[#0c0c0c] px-4 py-2 text-sm font-bold text-[var(--gold-2)]">
+                  {m}
+                </span>
+              </Item>
+            ))}
+          </Stagger>
+          <Punch>
+            זה לא עוד כנס. <span className="text-gold">זה ערב שיכול לעשות סדר לבעל עסק שרוצה לעלות שלב.</span>
+          </Punch>
+        </div>
+      </section>
 
       {/* ===== 2. מה יוצא לכם מזה ===== */}
       <section className="section" style={{ background: "linear-gradient(180deg,#050505,#000)" }}>
