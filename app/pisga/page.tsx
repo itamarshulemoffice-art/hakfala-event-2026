@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Reveal, Stagger, Item } from "@/components/Reveal";
 import { SpeakerImage } from "@/components/pisga/SpeakerImage";
 import { SpeakerCircle } from "@/components/pisga/SpeakerCircle";
-import { SummitEmblem } from "@/components/pisga/SummitEmblem";
 import { PisgaForm } from "@/components/pisga/PisgaForm";
 import { PisgaSticky } from "@/components/pisga/PisgaSticky";
 import { Countdown } from "@/components/Countdown";
@@ -117,12 +116,9 @@ export default function Pisga() {
       <header className="starfield relative overflow-hidden">
         <XOStrip />
         <div className="relative z-10 mx-auto max-w-6xl px-5 pt-9 pb-44 text-center sm:pb-52">
-          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-14 w-auto opacity-95" />
+          <Image src="/logo-white.png" alt="הכפלה עסקית" width={140} height={60} priority className="mx-auto h-20 w-auto opacity-95" />
           <Reveal>
-            <p className="mt-6 text-xs font-bold tracking-[0.4em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
-            <div className="mt-4 flex justify-center">
-              <SummitEmblem className="h-auto w-60 sm:w-80" />
-            </div>
+            <p className="mt-8 text-xs font-bold tracking-[0.4em] text-[var(--gold-2)]">פסגת העסקים החרדית 2026</p>
             <h1 className="mt-3 font-extrabold tracking-tight text-white" style={{ fontSize: "clamp(1.6rem,4.2vw,2.9rem)", lineHeight: 1.14 }}>
               השמות המובילים בעולם העסקים החרדי
             </h1>
