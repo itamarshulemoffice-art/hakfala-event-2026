@@ -94,7 +94,7 @@ f.addEventListener('submit',async e=>{e.preventDefault();er.textContent='';
  if(!d.name||!d.phone||!d.email){er.textContent='צריך שם, טלפון ומייל';return}
  if(!f.consent.checked){er.textContent='צריך לאשר קבלת עדכונים';return}
  const note='הרשמה לוובינר 30.11';let sent=false;
- if(CONFIG.crmKey){try{await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note}).toString()});sent=true}catch(x){}}
+ if(CONFIG.crmKey){try{await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:(()=>{const q=new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note,consent:'1'});new URLSearchParams(location.search).forEach((v,k)=>{if(/^utm_/.test(k))q.set(k,v)});return q.toString()})()});sent=true}catch(x){}}
  f.style.display='none';ok.style.display='block';
  if(!sent){const t=encodeURIComponent(note+'\nשם: '+d.name+'\nטלפון: '+d.phone+'\nמייל: '+d.email);document.getElementById('wa').href='https://wa.me/'+CONFIG.wa+'?text='+t;document.getElementById('wa').style.display='inline-flex'}
 });

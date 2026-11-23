@@ -566,7 +566,9 @@ body { margin: 0; background: var(--ink); color: var(--text-inv); font-family: v
     if (!CONFIG.crmKey) { fallback(); return; }
 
     btn.disabled = true; btn.textContent = 'שולחים...';
-    var body = new URLSearchParams({ name: name, phone: phone, email: email, note: note }).toString();
+    var bodyP = new URLSearchParams({ name: name, phone: phone, email: email, note: note, consent: '1' }); // consent=1 → the CRM adds the lead to the רב מסר list
+    try { new URLSearchParams(location.search).forEach(function (v, k) { if (/^utm_/.test(k)) bodyP.set(k, v); }); } catch (e) {}
+    var body = bodyP.toString();
     var url = CONFIG.crmEndpoint + '?k=' + encodeURIComponent(CONFIG.crmKey) + '&src=' + encodeURIComponent(CONFIG.leadSource);
     var timer = setTimeout(fallback, 9000), settled = false;
     fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body: body })
