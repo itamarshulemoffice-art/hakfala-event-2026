@@ -501,7 +501,7 @@ body { margin: 0; background: var(--ink); color: var(--text-inv); font-family: v
   /* ===== הגדרות: זה המקום היחיד שצריך לגעת בו ===== */
   var CONFIG = {
     crmEndpoint: 'https://hakfala-leads.vercel.app/api/lead',
-    crmKey: '',                       // המפתח הסודי של ה-CRM (הפרמטר k). כל עוד הוא ריק, הטופס מעביר את הפרטים לוואטסאפ
+    crmKey: (function (k) { return k.indexOf('%%') === 0 ? '' : k; })('%%CRM_KEY%%'), // מוזרק בזמן הפריסה מהסוד CRM_KEY. המפתח הסודי של ה-CRM (הפרמטר k). כל עוד הוא ריק, הטופס מעביר את הפרטים לוואטסאפ
     leadSource: 'hachshara-yoatzim',  // תווית המקור שתופיע ב-CRM (הפרמטר src)
     whatsapp: '972533315315',
     thankYouUrl: ''                   // לא חובה: כתובת דף תודה לעבור אליו אחרי שליחה מוצלחת
