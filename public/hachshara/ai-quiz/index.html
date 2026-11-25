@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תוך כמה זמן AI מחליף אותך?</title>
+<meta name="description" content="7 שאלות, דקה אחת. תגלו איפה במקצוע שלכם אתם רק מעבירים מידע, ואיפה אתם מזיזים אנשים.">
+<meta property="og:title" content="תוך כמה זמן AI מחליף אותך?">
+<meta property="og:description" content="7 שאלות, דקה אחת. בדקו את עצמכם.">
+<meta property="og:image" content="../hachshara-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק -->
+<style>
+/*
+VOICE: איתמר. שאלה ישירה, בלי חפירות.
+IDEA: מבחן קצר שמסתיים בתשובה שאנשים רוצים לשתף.
+LAYOUT: שאלה אחת על המסך, פס התקדמות, תוצאה עם שלושת הרבדים.
+*/
+:root{color-scheme:light;--gold:#c9a44b;--gold2:#e8cf7a;--ink:#0b0c0c;--card:#141615;--line:#2b2e2c}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--ink);color:#f4efe2;font:17px/1.6 "Heebo",Arial,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 max(5vw,16px)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.top img{height:42px}
+.top span{font-size:14px;color:#a9a397}
+h1{font-size:clamp(34px,7vw,60px);line-height:1.05;margin:18px 0 14px;font-weight:900;text-wrap:balance}
+h1 b{background:linear-gradient(90deg,#F8E592,#C9A44B,#B8913A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:#d8d2c4;margin:0 0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#111;font:900 19px Heebo,Arial;border:0;border-radius:12px;padding:16px 26px;min-height:56px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:#f4efe2;border:1px solid #3a3d3b}
+.btn:focus-visible,.opt:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.me{display:flex;gap:14px;align-items:center;margin:28px 0 40px;color:#a9a397;font-size:15px}
+.me img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold)}
+.me b{color:#fff}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:12px 0 40px}
+.bar{height:6px;background:#2b2e2c;border-radius:9px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.qn{font-size:14px;color:var(--gold2);font-weight:700;margin:0 0 6px}
+.q{font-size:clamp(22px,4vw,28px);line-height:1.25;font-weight:800;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opt{display:block;width:100%;text-align:right;background:#0b0c0c;color:#f4efe2;border:1px solid #3a3d3b;border-radius:12px;padding:15px 16px;font:500 17px/1.4 Heebo,Arial;cursor:pointer}
+.opt:hover{border-color:var(--gold)}
+.back{background:none;border:0;color:#a9a397;font:15px Heebo,Arial;margin-top:14px;cursor:pointer;padding:6px 0}
+label.f{display:block;font-size:14px;color:#cfc9bb;margin:0 0 12px}
+label.f input{display:block;width:100%;margin-top:5px;font:16px Heebo,Arial;padding:13px 14px;border-radius:10px;border:1px solid #3a3d3b;background:#0b0c0c;color:#fff}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#b9b3a6;margin:4px 0 16px}
+label.c input{width:20px;height:20px;accent-color:var(--gold);flex:none;margin-top:2px}
+.err{color:#ff9a9a;font-size:14px;min-height:20px;margin-top:8px}
+.years{font-size:clamp(40px,9vw,72px);font-weight:900;line-height:1;margin:6px 0 8px;background:linear-gradient(90deg,#F8E592,#C9A44B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.prof{display:inline-block;background:var(--gold);color:#111;font-weight:800;border-radius:999px;padding:5px 14px;font-size:15px;margin-bottom:12px}
+.layers{display:grid;gap:14px;margin:22px 0}
+.layer b{display:flex;justify-content:space-between;font-size:16px}
+.layer small{display:block;color:#a9a397;font-size:13.5px;margin-top:2px}
+.track{height:12px;background:#2b2e2c;border-radius:9px;overflow:hidden;margin-top:6px}
+.track i{display:block;height:100%;background:linear-gradient(90deg,#B8913A,#F8E592)}
+.say p{margin:0 0 12px;font-size:17.5px}
+.cta{background:#faf7f0;color:#141615;border-radius:16px;padding:22px;margin:22px 0}
+.cta h3{margin:0 0 6px;font-size:22px;font-weight:900}
+.cta p{margin:0 0 14px;color:#4a4740}
+.cta .btn{width:100%;font-size:18px;padding:14px 16px}
+.share .btn{font-size:17px;padding:12px 14px}
+.share{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.note{font-size:13px;color:#8d887c;margin-top:14px}
+footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
+[hidden]{display:none!important}
+</style></head><body>
+<div class="wrap top"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><span>איתמר שולם</span></div>
+
+<main class="wrap">
+<section id="intro">
+<h1>תוך כמה זמן<br><b>AI מחליף אותך?</b></h1>
+<p class="lead">7 שאלות, דקה אחת. תגלו איפה במקצוע שלכם אתם רק מעבירים מידע, ואיפה אתם מזיזים אנשים. את זה AI לא יחליף.</p>
+<button class="btn" id="start">בדקו את עצמכם &#8592;</button>
+<div class="me"><img src="../hachshara-itamar.webp" alt=""><div><b>איתמר שולם</b><br>מייסד הכפלה עסקית</div></div>
+</section>
+
+<section class="panel" id="quiz" hidden aria-live="polite">
+<div class="bar"><i id="prog"></i></div>
+<p class="qn" id="qn"></p>
+<h2 class="q" id="qt"></h2>
+<div class="opts" id="opts"></div>
+<button class="back" id="back" type="button">&#8594; לשאלה הקודמת</button>
+</section>
+
+<section class="panel" id="gate" hidden>
+<p class="qn">התוצאה מוכנה</p>
+<h2 class="q">לאן לשלוח לכם את התוצאה?</h2>
+<form id="lead" novalidate>
+<label class="f">שם<input name="name" autocomplete="name" required></label>
+<label class="f">טלפון<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+<label class="f">מייל<input name="email" type="email" autocomplete="email" required></label>
+<label class="c"><input type="checkbox" name="consent">אני מאשר/ת לקבל מהכפלה עסקית עדכונים, תוכן והצעות במייל ובוואטסאפ, כולל הזמנה לוובינר והניוזלטר. אפשר להסיר בכל רגע.</label>
+<button class="btn" type="submit" style="width:100%">הראו לי את התוצאה &#8592;</button>
+<div class="err" id="err" role="alert"></div>
+</form>
+</section>
+
+<section id="result" hidden>
+<div class="panel">
+<p class="qn">AI מחליף אותך תוך</p>
+<div class="years" id="years"></div>
+<span class="prof" id="prof"></span>
+<div class="say" id="say"></div>
+<div class="layers">
+<div class="layer"><b><span>מקצועי</span><span id="pP"></span></b><small>ידע, כלים, תשובות. פה AI מחזק את כולם</small><div class="track"><i id="tP"></i></div></div>
+<div class="layer"><b><span>מנטלי</span><span id="pM"></span></b><small>להזיז בן אדם מעבר לפחד ולהרגל. פה AI לא נוגע</small><div class="track"><i id="tM"></i></div></div>
+<div class="layer"><b><span>עסקי</span><span id="pB"></span></b><small>מערכת שהופכת תנועה לתוצאה. גם פה לא</small><div class="track"><i id="tB"></i></div></div>
+</div>
+<div class="say"><p>AI מחזק את הרובד המקצועי של כל מקצוע. מי שמזיז אנשים במנטלי ובעסקי, אותו אי אפשר להחליף. על שלושת הרבדים האלה בנויה שיטת הכפלה עסקית.</p></div>
+<div class="cta">
+<h3>התשובה המלאה: ביום שני, 30.11, ב-20:30</h3>
+<p>וובינר חינמי בזום. איתמר שולם מראה בלייב איך מזיזים בן אדם כשהידע כבר לא חסר, ואיך הופכים את זה למקצוע. מי שנשאר עד הסוף מקבל את מפת הערך המוסף.</p>
+<a class="btn" id="reg" href="../webinar/?utm_source=quiz">שמרו לי מקום בוובינר &#8592;</a>
+</div>
+<div class="share">
+<a class="btn ghost" id="shareWa" href="#" target="_blank" rel="noopener">שתפו בוואטסאפ</a>
+<button class="btn ghost" id="again" type="button">לבדוק שוב</button>
+</div>
+<p class="note">המבחן הוא כלי לחשיבה, לא תחזית מדעית.</p>
+</div>
+</section>
+</main>
+<footer>הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
+
+<script>
+{
+const K='%%CRM_KEY%%';
+const CONFIG={endpoint:'https://hakfala-leads.vercel.app/api/lead',crmKey:K.indexOf('%%')===0?'':K,src:'hachshara-ai-quiz'};
+// l = רובד: P מקצועי, M מנטלי, B עסקי. כל תשובה שווה 0 עד 3 נקודות של "הזזת אנשים"
+const Q=[
+ {l:'P',t:'כמה מהעבודה שלך היא "לקבל שאלה ולהחזיר תשובה"?',o:['רוב העבודה','בערך חצי','מעט','כמעט כלום']},
+ {l:'P',t:'לקוח יכול לקבל את מה שאתה נותן מ-ChatGPT?',o:['כן, כמעט הכל','חלק גדול','רק את הבסיס','את הידע כן, את מה שאני עושה איתו לא']},
+ {l:'M',t:'לקוח יודע בדיוק מה הוא צריך לעשות, ולא עושה. מה אתה עושה?',o:['מסביר לו שוב','נותן לו עוד טיפים','שואל אותו מה עוצר אותו','לא משחרר עד שיש צעד, תאריך והתחייבות']},
+ {l:'M',t:'לקוח מפחד מהחלטה גדולה, כמו להעלות מחירים. מה התפקיד שלך?',o:['להגיד לו שזו החלטה שלו','להראות לו את הנתונים','לדבר איתו על הפחד','לעבור איתו את הפחד וללוות אותו בביצוע']},
+ {l:'M',t:'כמה פעמים לקוח אמר לך "שינית לי את החיים"?',o:['אף פעם','פעם או פעמיים','מדי פעם','הרבה']},
+ {l:'B',t:'על מה הלקוחות משלמים לך?',o:['על שעות או משימה','על תוצר','על פרויקט עם יעד','על תוצאה']},
+ {l:'B',t:'כשאתה מסיים, מה נשאר אצל הלקוח?',o:['קובץ או מסמך','המלצות','תוכנית פעולה','מערכת שעובדת ונמדדת']}
+];
+const $=id=>document.getElementById(id);
+let i=0,ans=[],res=null;
+function show(id){['intro','quiz','gate','result'].forEach(s=>$(s).hidden=s!==id);window.scrollTo({top:0,behavior:'smooth'})}
+function render(){
+ const q=Q[i];$('prog').style.width=(i/Q.length*100)+'%';$('qn').textContent='שאלה '+(i+1)+' מתוך '+Q.length;$('qt').textContent=q.t;
+ $('opts').innerHTML='';q.o.forEach((txt,v)=>{const b=document.createElement('button');b.type='button';b.className='opt';b.textContent=txt;b.onclick=()=>{ans[i]=v;i++;i<Q.length?render():(compute(),show('gate'))};$('opts').appendChild(b)});
+ $('back').hidden=i===0;$('opts').firstChild.focus({preventScroll:true});
+}
+function compute(){
+ const s={P:0,M:0,B:0},m={P:0,M:0,B:0};Q.forEach((q,k)=>{s[q.l]+=ans[k];m[q.l]+=3});
+ const tot=ans.reduce((a,b)=>a+b,0);
+ let years,prof,say;
+ if(tot<=6){years='פחות משנה';prof='מתווך מידע';say=['רוב מה שאתם נותנים היום זה ידע. וידע, AI כבר נותן לכולם, בחינם, ב-10 שניות','החדשות הטובות: את הרובד שהוא לא נוגע בו אפשר ללמוד']}
+ else if(tot<=11){years='שנה עד שנתיים';prof='בעל מקצוע';say=['יש לכם מקצוע אמיתי, אבל רוב הערך שלכם עדיין יושב ברובד המקצועי. בדיוק שם AI מתחזק הכי מהר','מה שיבדל אתכם זה היכולת להזיז את הלקוח, לא רק לדעת יותר ממנו']}
+ else if(tot<=16){years='3 עד 5 שנים';prof='בדרך להזיז אנשים';say=['אתם כבר עושים יותר ממה שכל כלי יכול. אתם רואים את האדם שמולכם','מה שחסר זה שיטה, כדי שזה יקרה כל פעם ולא רק כשהולך טוב']}
+ else{years='לא בקרוב';prof='מזיז אנשים';say=['אתם מזיזים אנשים מנקודה A לנקודה B. אתכם AI לא מחליף, הוא רק מייקר','השאלה היא אם אתם עושים את זה כמקצוע, או רק כשמזדמן']}
+ res={tot,years,prof};
+ $('years').textContent=years;$('prof').textContent=prof;$('say').innerHTML=say.map(x=>'<p>'+x+'</p>').join('');
+ [['P','pP','tP'],['M','pM','tM'],['B','pB','tB']].forEach(([k,p,t])=>{const pc=Math.round(s[k]/m[k]*100);$(p).textContent=pc+'%';$(t).style.width=pc+'%'});
+ const url=location.origin+location.pathname;
+ $('shareWa').href='https://wa.me/?text='+encodeURIComponent('עשיתי את המבחן "תוך כמה זמן AI מחליף אותך?" ויצא לי: '+years+' ('+prof+'). תבדקו את עצמכם, לוקח דקה: '+url);
+ const r=new URLSearchParams(location.search);const reg=new URLSearchParams({utm_source:r.get('utm_source')?'quiz_'+r.get('utm_source'):'quiz'});$('reg').href='../webinar/?'+reg.toString();
+}
+$('start').onclick=()=>{i=0;ans=[];show('quiz');render()};
+$('back').onclick=()=>{if(i>0){i--;render()}};
+$('again').onclick=()=>{i=0;ans=[];show('quiz');render()};
+const f=$('lead');
+f.addEventListener('submit',async e=>{e.preventDefault();$('err').textContent='';
+ const d=Object.fromEntries(new FormData(f));
+ if(!d.name||!d.phone||!d.email){$('err').textContent='צריך שם, טלפון ומייל';return}
+ const note='מבחן AI: '+res.years+' ('+res.prof+'), ציון '+res.tot+'/21';
+ if(CONFIG.crmKey){try{const q=new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note,consent:f.consent.checked?'1':'0'});new URLSearchParams(location.search).forEach((v,k)=>{if(/^utm_/.test(k))q.set(k,v)});
+  await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:q.toString()})}catch(x){}}
+ if(window.fbq)fbq('track','Lead');(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',form:'ai-quiz'});
+ show('result');
+});
+}
+</script></body></html>
