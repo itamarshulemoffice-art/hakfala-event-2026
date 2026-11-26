@@ -8,7 +8,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent / "public" / "hachshara"
 BIZ = {
     "brand": "הכפלה עסקית",
     "owner": "איתמר שולם",
-    "legal_name": "[[שם העסק הרשמי]]",
+    "legal_name": "הכפלה עסקית",
     "biz_id": "ח.פ 211356357",
     "address": "ריש לקיש 4, בית שמש",
     "phone": "053-3315315",

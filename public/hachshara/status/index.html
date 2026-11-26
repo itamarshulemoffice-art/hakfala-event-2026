@@ -24,6 +24,7 @@ h2 em{font-style:normal;color:var(--gold)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#111;font-weight:900;font-size:19px;border:0;border-radius:12px;padding:16px 28px;min-height:58px;text-decoration:none;cursor:pointer}
 .btn:hover{background:var(--gold2)}
 .btn:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.lede{color:var(--mute);margin:0 0 6px;font-size:17px}
 .micro{font-size:13.5px;color:var(--mute);margin:10px 0 0}
 mark.todo{background:#ffe066;color:#111;border-radius:4px;padding:0 4px;font-weight:700}
 
@@ -35,7 +36,7 @@ mark.todo{background:#ffe066;color:#111;border-radius:4px;padding:0 4px;font-wei
 .split .pic .cap{position:absolute;bottom:18px;left:20px;right:20px;z-index:1;font-size:14px;color:#e9e3d6}
 .split .pic .cap b{display:block;font-size:19px;color:#fff}
 .split .txt{display:flex;flex-direction:column;justify-content:center;padding:40px max(28px,5vw)}
-.split .logo{height:44px;width:auto;margin-bottom:34px}
+.split .logo{height:44px;width:auto;max-width:none;align-self:flex-start;object-fit:contain;margin-bottom:34px}
 .split h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,5.6vw,72px);line-height:1;margin:0 0 18px;letter-spacing:-.01em;text-wrap:balance}
 .split h1 b{color:var(--gold)}
 .split .lead{font-size:20px;color:#ddd6c6;margin:0 0 22px;max-width:30em}
@@ -118,6 +119,18 @@ padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-
 .co .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .co button.btn{width:100%;font-family:inherit}
 .co button.btn[disabled]{opacity:.7;cursor:wait}
+
+.tv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.tv button{all:unset;cursor:pointer;display:block;border-radius:14px;overflow:hidden;background:#151512;border:1px solid rgba(255,255,255,.1)}
+.tv button:focus-visible{outline:3px solid #d4af37;outline-offset:2px}
+.tv .f{position:relative;aspect-ratio:16/9;background:#111 center/cover no-repeat;display:grid;place-items:center}
+.tv .f iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tv .p{width:58px;height:58px;border-radius:50%;background:#d4af37;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.tv .p:after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #111;margin-left:5px}
+.tv .n{display:block;padding:12px 14px;font-weight:700;color:#f3efe5;font-size:16px}
+.tv .n small{display:block;font-weight:400;color:#a9a395;font-size:13px}
+@media (max-width:860px){.tv{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:520px){.tv{gap:10px}.tv .p{width:44px;height:44px}.tv .n{padding:8px 10px;font-size:14px}}
 </style></head><body>
 
 <header class="split">
@@ -154,7 +167,9 @@ padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-
 
 <section class="s" style="padding-top:0"><div class="wrap">
 <p class="eyebrow">מה אומרים</p><h2>בעלי עסקים <em>מספרים</em></h2>
-<div class="vids"><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div></div>
+<p class="lede">לקוחות שעבדו עם איתמר בליווי העסקי של הכפלה עסקית.</p>
+<div class="tv"><button type="button" data-v="iUQNNYWroYg" aria-label="לצפייה בעדות של יעקב רובין"><span class="f" style="background-image:url(https://i.ytimg.com/vi/iUQNNYWroYg/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">יעקב רובין<small>לקוח/ה של הכפלה עסקית</small></span></button><button type="button" data-v="YlC4c-9N164" aria-label="לצפייה בעדות של זלמן הולצברג"><span class="f" style="background-image:url(https://i.ytimg.com/vi/YlC4c-9N164/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">זלמן הולצברג<small>לקוח/ה של הכפלה עסקית</small></span></button><button type="button" data-v="eKyT13RRXqg" aria-label="לצפייה בעדות של אביגדור קבילי"><span class="f" style="background-image:url(https://i.ytimg.com/vi/eKyT13RRXqg/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">אביגדור קבילי<small>לקוח/ה של הכפלה עסקית</small></span></button><button type="button" data-v="ML49iCHtz00" aria-label="לצפייה בעדות של יצחק וחנון"><span class="f" style="background-image:url(https://i.ytimg.com/vi/ML49iCHtz00/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">יצחק וחנון<small>לקוח/ה של הכפלה עסקית</small></span></button><button type="button" data-v="FJMLzrPt_VA" aria-label="לצפייה בעדות של שמעון שמש"><span class="f" style="background-image:url(https://i.ytimg.com/vi/FJMLzrPt_VA/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">שמעון שמש<small>לקוח/ה של הכפלה עסקית</small></span></button><button type="button" data-v="e8v3e2sjWwI" aria-label="לצפייה בעדות של ורד נפרין"><span class="f" style="background-image:url(https://i.ytimg.com/vi/e8v3e2sjWwI/hqdefault.jpg)"><span class="p" aria-hidden="true"></span></span><span class="n">ורד נפרין<small>לקוח/ה של הכפלה עסקית</small></span></button></div>
+<script>document.querySelectorAll('.tv button').forEach(function(b){b.addEventListener('click',function(){var f=b.querySelector('.f');if(f.querySelector('iframe'))return;f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.v+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="עדות"></iframe>'})})</script>
 <p class="more">עוד עדויות של בעלי עסקים <a href="https://www.youtube.com/@%D7%90%D7%99%D7%AA%D7%9E%D7%A8%D7%A9%D7%95%D7%9C%D7%9D" target="_blank" rel="noopener">בערוץ היוטיוב של איתמר &#8592;</a></p>
 </div></section>
 
@@ -211,7 +226,7 @@ padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-
 
 <section class="s" style="padding-top:0"><div class="wrap narrow"><p class="eyebrow">שאלות</p><h2>שאלות <em>נפוצות</em></h2><details><summary>לכמה זמן יש גישה לקורס?</summary><p><mark class="todo">משך הגישה</mark></p></details><details><summary>איך מקבלים את הקורס?</summary><p>מיד אחרי התשלום נשלח אליכם קישור כניסה במייל ובוואטסאפ. <mark class="todo">לאשר את אופן המסירה</mark></p></details><details><summary>כמה זמן זה לוקח?</summary><p>11 שיעורים קצרים, פחות משעה בסך הכול. אפשר לצפות בישיבה אחת, או שיעור ביום.</p></details><details><summary>אני לא טכני. זה יתאים לי?</summary><p>כן. הקורס מתחיל מהבסיס: מה זה הלשוניות, איפה הסטטוס, ואיך מעלים. כל מה שצריך זה טלפון עם וואטסאפ.</p></details><details><summary>צריך וואטסאפ ביזנס?</summary><p>לא חובה. הסטטוס עובד גם בוואטסאפ רגיל. בקורס מוסבר ההבדל.</p></details><details><summary>אין לי הרבה אנשי קשר. יש טעם?</summary><p>כן. שיעור שלם עוסק בהגדלת צפיות בלי לשלם על פרסום, ושיעור נוסף בפרסום ממומן.</p></details><details><summary>אני לא יודע מה להעלות.</summary><p>בדיוק בשביל זה יש את הגאנט ואת מפלצת הסטטוס. הם נותנים לכם מה להעלות, יום אחרי יום.</p></details><details><summary>אפשר לבטל?</summary><p>כן, לפי מדיניות הביטולים שבתקנון. הקישור בתחתית הדף.</p></details></div></section>
 <footer class="legal"><div class="wrap">
-<p><b>הכפלה עסקית</b> · <mark class="todo">שם העסק הרשמי</mark> · ח.פ 211356357</p>
+<p><b>הכפלה עסקית</b> · הכפלה עסקית · ח.פ 211356357</p>
 <p>ריש לקיש 4, בית שמש · <a href="tel:+972533315315">053-3315315</a> · <mark class="todo">מייל לשירות לקוחות</mark> · <a href="https://wa.me/972533315315">וואטסאפ</a></p>
 <p><a href="../legal/terms/">תקנון ותנאי רכישה</a> · <a href="../legal/terms/#refund">מדיניות ביטולים והחזרים</a> · <a href="../legal/privacy/">מדיניות פרטיות</a> · <a href="../legal/accessibility/">הצהרת נגישות</a></p>
 <p class="pay">התשלום מאובטח ומתבצע אצל <mark class="todo">UPay</mark>. פרטי האשראי לא עוברים דרכנו ולא נשמרים אצלנו.</p>

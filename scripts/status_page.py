@@ -1,4 +1,5 @@
 from checkout import fields, script, CSS as CO_CSS
+from testimonials import grid as tv_grid, CSS as TV_CSS
 # Full paid-traffic sales page for "מכפיל הסטטוס" (300 NIS). Imported by build-sales-pages.py.
 import re
 
@@ -26,11 +27,7 @@ S = {
         ("גאנט תוכן לחודש", "20 ימים, 60 סטטוסים, מחולקים מראש לפי 60/40. לכל משבצת כתוב מה עולה בה."),
         ("מפלצת הסטטוס", "סוכן AI שמדביקים ב-ChatGPT, ב-Gemini או ב-Claude. הוא לומד את העסק שלכם ומגיש כל בוקר חבילת תוכן מלאה: טקסט, רעיון לסרטון, גרפיקה, רצף של ארבעה מסכים ותגובות מוכנות."),
     ],
-    "testimonials": [
-        ("[[שם]]", "[[סוג העסק]]", "[[משפט אחד מהעדות]]"),
-        ("[[שם]]", "[[סוג העסק]]", "[[משפט אחד מהעדות]]"),
-        ("[[שם]]", "[[סוג העסק]]", "[[משפט אחד מהעדות]]"),
-    ],
+    "testimonials": ["iUQNNYWroYg", "YlC4c-9N164", "eKyT13RRXqg", "ML49iCHtz00", "FJMLzrPt_VA", "e8v3e2sjWwI"],
     "faq": [
         ("לכמה זמן יש גישה לקורס?", "[[משך הגישה]]"),
         ("איך מקבלים את הקורס?", "מיד אחרי התשלום נשלח אליכם קישור כניסה במייל ובוואטסאפ. [[לאשר את אופן המסירה]]"),
@@ -65,6 +62,7 @@ h2 em{font-style:normal;color:var(--gold)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#111;font-weight:900;font-size:19px;border:0;border-radius:12px;padding:16px 28px;min-height:58px;text-decoration:none;cursor:pointer}
 .btn:hover{background:var(--gold2)}
 .btn:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.lede{color:var(--mute);margin:0 0 6px;font-size:17px}
 .micro{font-size:13.5px;color:var(--mute);margin:10px 0 0}
 mark.todo{background:#ffe066;color:#111;border-radius:4px;padding:0 4px;font-weight:700}
 
@@ -76,7 +74,7 @@ mark.todo{background:#ffe066;color:#111;border-radius:4px;padding:0 4px;font-wei
 .split .pic .cap{position:absolute;bottom:18px;left:20px;right:20px;z-index:1;font-size:14px;color:#e9e3d6}
 .split .pic .cap b{display:block;font-size:19px;color:#fff}
 .split .txt{display:flex;flex-direction:column;justify-content:center;padding:40px max(28px,5vw)}
-.split .logo{height:44px;width:auto;margin-bottom:34px}
+.split .logo{height:44px;width:auto;max-width:none;align-self:flex-start;object-fit:contain;margin-bottom:34px}
 .split h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,5.6vw,72px);line-height:1;margin:0 0 18px;letter-spacing:-.01em;text-wrap:balance}
 .split h1 b{color:var(--gold)}
 .split .lead{font-size:20px;color:#ddd6c6;margin:0 0 22px;max-width:30em}
@@ -154,14 +152,14 @@ def status_page(t, footer, biz):
     s = S
     li = lambda xs, cls="chk": f'<ul class="{cls}">' + "".join(f"<li>{t(x)}</li>" for x in xs) + "</ul>"
     syll = "".join(f"<li><div><h3>{t(h)}</h3><p>{t(p)}</p></div></li>" for h, p in s["lessons"])
-    vids = "".join(f'<div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small>{t("[[סרטון עדות]]")}</small></div><div class="q"><p>"{t(q)}"</p><span>{t(n)} · {t(b)}</span></div></div>' for n, b, q in s["testimonials"])
+    vids = tv_grid(s["testimonials"])
     bons = "".join(f'<div><span>בונוס {i}</span><b>{t(h)}</b><p>{t(p)}</p></div>' for i, (h, p) in enumerate(s["bonuses"], 1))
     faq = "".join(f"<details><summary>{t(q)}</summary><p>{t(a)}</p></details>" for q, a in s["faq"])
     return f"""<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{s['name']}</title><meta name="description" content="מכפיל הסטטוס, הקורס של איתמר שולם: השיטה שהופכת צופים בוואטסאפ ללקוחות. 11 שיעורים קצרים, 3 בונוסים, 300 ₪.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק. בלחיצה על התשלום הדף קורא ל-fbq('track','InitiateCheckout') אם הפיקסל מותקן. -->
-<style>{CSS}{CO_CSS}</style></head><body>
+<style>{CSS}{CO_CSS}{TV_CSS}</style></head><body>
 
 <header class="split">
 <div class="pic"><img src="../hachshara-itamar.webp" alt="{biz['owner']}"><p class="cap"><b>{biz['owner']}</b>מייסד {biz['brand']} · 13 שנים במכירות</p></div>
@@ -197,7 +195,8 @@ def status_page(t, footer, biz):
 
 <section class="s" style="padding-top:0"><div class="wrap">
 <p class="eyebrow">מה אומרים</p><h2>בעלי עסקים <em>מספרים</em></h2>
-<div class="vids">{vids}</div>
+<p class="lede">לקוחות שעבדו עם איתמר בליווי העסקי של הכפלה עסקית.</p>
+{vids}
 <p class="more">עוד עדויות של בעלי עסקים <a href="https://www.youtube.com/@%D7%90%D7%99%D7%AA%D7%9E%D7%A8%D7%A9%D7%95%D7%9C%D7%9D" target="_blank" rel="noopener">בערוץ היוטיוב של איתמר &#8592;</a></p>
 </div></section>
 

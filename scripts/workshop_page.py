@@ -1,4 +1,5 @@
 from checkout import fields, script, CSS as CO_CSS
+from testimonials import grid as tv_grid, CSS as TV_CSS
 # The extreme-sales workshop page (live on Zoom). Its own layout, same brand.
 # Imported by build-sales-pages.py, which passes in t() and footer().
 import re
@@ -149,14 +150,14 @@ def workshop_page(t, footer, biz):
     li = lambda xs, cls="chk": f'<ul class="{cls}">' + "".join(f"<li>{t(x)}</li>" for x in xs) + "</ul>"
     run = "".join(f'<li><span class="tm">{t(a)}</span><span class="dot"></span><div><h3>{t(h)}</h3><p>{t(p)}</p></div></li>' for a, h, p in w["agenda"])
     steps = "".join(f"<div><b>{t(a)}</b><p>{t(b)}</p></div>" for a, b in w["steps"])
-    vids = "".join(f'<div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small>{t("[[סרטון עדות]]")}</small></div><div class="q"><p>"{t("[[משפט אחד מהעדות]]")}"</p><span>{t("[[שם]]")} · {t("[[סוג העסק]]")}</span></div></div>' for _ in range(3))
+    vids = tv_grid(["MwQCIENZgNY", "a7MfGVZ2jOo", "V9oCiN17GRw", "HXH6TiDErKE", "IdDaDOZIY0Y", "iUQNNYWroYg"])
     faq = "".join(f"<details><summary>{t(q)}</summary><p>{t(a)}</p></details>" for q, a in w["faq"])
     plain = lambda s: re.sub(r"\[\[(.+?)\]\]", r"\1", s)
     return f"""<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{w['name']}</title><meta name="description" content="סדנה חיה בזום עם איתמר שולם: מתרגלים שיחות מכירה אמיתיות, התנגדויות וסגירה, ויוצאים עם תסריט אישי.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק. בלחיצה על התשלום הדף קורא ל-fbq('track','InitiateCheckout') אם הפיקסל מותקן. -->
-<style>{CSS}{CO_CSS}</style></head><body>
+<style>{CSS}{CO_CSS}{TV_CSS}</style></head><body>
 <div class="bar"><div class="wrap"><img src="../hachshara-logo.webp" alt="{biz['brand']}"><span class="when">{t(w['date'])} · {t(w['time'])} · בזום</span><a class="go" href="#buy">שמרו לי מקום</a></div></div>
 <header class="hero xs"><div class="ph"><img src="../hachshara-event.jpg" alt="איתמר שולם מול קהל בעלי עסקים"><span class="tag">איתמר שולם · 13 שנים במכירות</span></div><div class="wrap hx">
 <p class="kicker"><i></i>סדנה חיה בזום · מספר המקומות מוגבל</p>
@@ -209,8 +210,8 @@ def workshop_page(t, footer, biz):
 </div></section>
 
 <section class="s"><div class="wrap">
-<h2>מה אומרים <em>בעלי העסקים</em></h2><p class="lede">{t('[[לבחור 3 סרטוני עדות מהערוץ, עדיף על מכירות וסגירות]]')}</p>
-<div class="vids">{vids}</div>
+<h2>מה אומרים <em>בעלי העסקים</em></h2><p class="lede">לקוחות שעבדו עם איתמר בליווי העסקי של הכפלה עסקית.</p>
+{vids}
 <p class="more">עוד עדויות <a href="https://www.youtube.com/@%D7%90%D7%99%D7%AA%D7%9E%D7%A8%D7%A9%D7%95%D7%9C%D7%9D" target="_blank" rel="noopener">בערוץ היוטיוב של איתמר &#8592;</a></p>
 <div class="cta" style="margin-top:22px"><a class="btn" href="#buy">שמרו לי מקום בסדנה &#8592;</a></div>
 </div></section>
