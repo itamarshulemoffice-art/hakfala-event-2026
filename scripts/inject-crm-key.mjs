@@ -4,7 +4,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 const key = (process.env.CRM_KEY || "").trim();
-const files = ["out/hachshara/index.html", "out/hachshara/webinar/index.html", "out/hachshara/syllabus/index.html"];
+const files = ["out/hachshara/index.html", "out/hachshara/webinar/index.html", "out/hachshara/syllabus/index.html", "out/hachshara/status/index.html", "out/hachshara/sales/index.html"];
 
 if (!key) { console.log("CRM_KEY not set: forms fall back to WhatsApp."); process.exit(0); }
 if (!/^[\w.~-]+$/.test(key)) { console.error("CRM_KEY has unexpected characters."); process.exit(1); }

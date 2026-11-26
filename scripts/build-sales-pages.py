@@ -215,8 +215,20 @@ def write(rel, s):
 
 import sys; sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from workshop_page import workshop_page
-write("status", course_page("status", COURSES["status"]))
+from status_page import status_page
+from checkout import thanks_page
+write("status", status_page(t, footer, BIZ))
 write("sales", workshop_page(t, footer, BIZ))
+write("status/thanks", thanks_page(BIZ, "הכפלה בסטטוס", 300, [
+    "תוך כמה דקות יגיעו אליך במייל הקבלה וקישור הכניסה לקורס.",
+    "שלחנו לך הודעה בוואטסאפ עם הקישור ועם הדרך הכי טובה להתחיל.",
+    "מתחילים מהשיעור הראשון: אסטרטגיה לפני הכל.",
+], "../"))
+write("sales/thanks", thanks_page(BIZ, "סדנת אקסטרים במכירות", 0, [
+    "תוך כמה דקות יגיעו אליך במייל הקבלה ופרטי הסדנה.",
+    "קישור הזום יישלח במייל ובוואטסאפ, וגם תזכורת יום לפני ושעה לפני.",
+    "מגיעים עם מצלמה פתוחה ועם עסקה אמיתית שתרצו לעבוד עליה.",
+], "../"))
 write("legal/terms", legal_page("תקנון ותנאי רכישה", TERMS))
 write("legal/privacy", legal_page("מדיניות פרטיות", PRIVACY))
 write("legal/accessibility", legal_page("הצהרת נגישות", ACCESS))

@@ -3,6 +3,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק. בלחיצה על התשלום הדף קורא ל-fbq('track','InitiateCheckout') אם הפיקסל מותקן. -->
 <style>
+
+.hero.xs{padding:0}
+.xs{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);padding:0;min-height:min(88vh,720px)}
+.xs .ph{position:relative;background:#1a1a18}
+.xs .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xs .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(10,10,10,0) 50%,var(--ink) 100%)}
+.xs .tag{position:absolute;bottom:16px;right:16px;z-index:1;background:rgba(10,10,10,.75);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.xs .hx{display:flex;flex-direction:column;justify-content:center;padding-block:48px;max-width:none;margin:0}
+.xs .name{font-size:clamp(46px,6.4vw,96px)!important}
+.story{background:#f7f3ea;color:#171614}.story h2 em{color:#a3201a}.story .kicker{color:#a3201a}
+.story p{font-size:19px;margin:0 0 16px}.story .big{font-family:var(--display);font-weight:800;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#8a6a1c;margin:26px 0}
+.vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.vid{border-radius:16px;overflow:hidden;background:var(--ink2);border:1px solid var(--line)}
+.vid .frame{position:relative;aspect-ratio:9/12;background:radial-gradient(circle at 50% 40%,#2a2720,#121210);display:grid;place-items:center}
+.vid .play{width:60px;height:60px;border-radius:50%;background:var(--hot);display:grid;place-items:center}
+.vid .play:after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.vid .frame small{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute)}
+.vid .q{padding:16px}.vid .q p{margin:0 0 8px;font-weight:700}.vid .q span{font-size:14px;color:var(--mute)}
+.more{margin-top:14px;color:var(--mute)}.more a{color:var(--gold2);font-weight:700}
+@media (max-width:860px){.xs{grid-template-columns:minmax(0,1fr);min-height:0}.xs .ph{aspect-ratio:4/3.4}.xs .ph:after{background:linear-gradient(180deg,rgba(10,10,10,0) 55%,var(--ink) 100%)}.xs .hx{padding-block:6px 40px}.vids{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vids .vid:nth-child(3){display:none}}
 /* LAYOUT: a ring-side poster. Huge outlined name, a ticket strip, then a vertical run-of-show. */
 :root{color-scheme:dark;--ink:#0a0a0a;--ink2:#141413;--line:#2c2b27;--gold:#d4af37;--gold2:#f3dc8a;--text:#f2eee4;--mute:#a7a194;--hot:#ff5a36;
 --display:"Rubik","Heebo",Arial,sans-serif;--body:"Heebo",Arial,sans-serif}
@@ -80,15 +100,38 @@ footer.legal p{margin:0 0 6px}footer.legal a{color:#cfc9bb}footer.legal .pay{fon
 .contrast,.steps,.two,.buy{grid-template-columns:minmax(0,1fr)}.who{grid-template-columns:minmax(0,1fr)}.who img{width:160px}
 .run:before{right:64px}.run li{grid-template-columns:52px 26px minmax(0,1fr);gap:0 10px}.bar .when{display:none}}
 @media(prefers-reduced-motion:no-preference){.kicker i{animation:pulse 1.6s infinite}@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,90,54,0)}}}
+
+.co .fld{margin:0 0 12px}
+.co .fld label{display:block;font-size:14px;font-weight:700;color:#cfc8b8;margin:0 0 5px}
+.co .fld input{width:100%;font:inherit;font-size:17px;padding:12px 14px;border-radius:10px;border:1px solid #4a463d;background:#0f0f0e;color:#f3efe5;min-height:50px}
+.co .fld.bad input{border-color:#ff9a9a}
+.co .fld .m{color:#ff9a9a;font-size:13px;min-height:0;margin:4px 0 0}
+.co label.c{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#cfc8b8;margin:0 0 12px}
+.co label.c input{width:20px;height:20px;accent-color:#d4af37;flex:none;margin-top:2px}
+.co label.c.bad{color:#ff9a9a}
+.co .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.co button.btn{width:100%;font-family:inherit}
+.co button.btn[disabled]{opacity:.7;cursor:wait}
 </style></head><body>
 <div class="bar"><div class="wrap"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><span class="when"><mark class="todo">יום ותאריך</mark> · <mark class="todo">שעה</mark> · בזום</span><a class="go" href="#buy">שמרו לי מקום</a></div></div>
-<header class="hero"><div class="wrap">
+<header class="hero xs"><div class="ph"><img src="../hachshara-event.jpg" alt="איתמר שולם מול קהל בעלי עסקים"><span class="tag">איתמר שולם · 13 שנים במכירות</span></div><div class="wrap hx">
 <p class="kicker"><i></i>סדנה חיה בזום · מספר המקומות מוגבל</p>
 <h1 class="name"><span class="o">סדנת</span> <span class="g">אקסטרים</span><br>במכירות</h1>
 <p class="sub"><mark class="todo">משך</mark> שעות בזום עם איתמר שולם. בלי שקפים ובלי הרצאות: שיחות מכירה אמיתיות, התנגדויות אמיתיות, וסגירות בלייב, עד שזה יושב לך בגוף. <mark class="todo">משפט ההבטחה המדויק של הסדנה</mark></p>
 <div class="ticket"><div><b><mark class="todo">יום ותאריך</mark></b><span>מתי</span></div><div><b><mark class="todo">שעה</mark></b><span>שעה</span></div><div><b>בזום</b><span>מכל מקום, מצלמה פתוחה</span></div><div><b><mark class="todo">מחיר</mark> ₪</b><span>מחיר</span></div></div>
 <div class="cta"><a class="btn" href="#buy">שמרו לי מקום בסדנה &#8592;</a><p class="micro">תשלום מאובטח · קישור הזום נשלח אחרי ההרשמה</p></div>
 </div></header>
+
+<section class="s story"><div class="wrap" style="max-width:780px">
+<p class="kicker"><i></i>הסיפור</p>
+<h2>הלקוח אמר "אני אחשוב על זה". <em>ואתה הסכמת.</em></h2>
+<p>זה קרה לכל בעל עסק. שיחה טובה, הלקוח מתעניין, המחיר עולה על השולחן, ואז השקט. "אני אחזור אליך". הוא לא חוזר.</p>
+<p>לא חסר לך ידע. קראת, שמעת פודקאסטים, אולי אפילו עשית קורס. אבל ברגע האמת, מול לקוח אמיתי, הגוף קופא והמילים נעלמות.</p>
+<p class="big">מכירה זה לא משהו שיודעים. זה משהו שעושים, עד שזה יושב בגוף.</p>
+<p><mark class="todo">הסיפור של איתמר: רגע אמיתי שבו הבין שתרגול מנצח ידע, ומה ראה אצל בעלי העסקים שליווה. 3-4 משפטים בשפה שלו</mark></p>
+<p>בשביל זה בנינו את הסדנה הזו: כמה שעות של תרגול חי, בלי שקפים, על עסקאות אמיתיות שלך.</p>
+<div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני רוצה לתרגל את זה &#8592;</a></div>
+</div></section>
 
 <section class="s"><div class="wrap">
 <h2>למה <em>אקסטרים</em></h2><p class="lede">כי לשמוע על מכירות זה קל. לעשות את זה בקול, מול אנשים, כשמישהו אומר לך "יקר לי", זה מה שמשנה את החודש הבא שלך.</p>
@@ -101,6 +144,7 @@ footer.legal p{margin:0 0 6px}footer.legal a{color:#cfc9bb}footer.legal .pay{fon
 <section class="s"><div class="wrap">
 <h2>מה קורה <em>בסדנה</em></h2><p class="lede">חמישה סבבים. כל סבב: הסבר קצר, תרגול בזוגות בחדרים בזום, ותיקון מול כולם.</p>
 <ol class="run"><li><span class="tm"><mark class="todo">שעה</mark></span><span class="dot"></span><div><h3>פתיחה: איפה העסקאות שלך נופלות</h3><p>כל משתתף מביא עסקה אמיתית שנתקעה. מאבחנים ביחד באיזה שלב היא נפלה.</p></div></li><li><span class="tm"><mark class="todo">שעה</mark></span><span class="dot"></span><div><h3>סבב 1: פתיחת שיחה</h3><p>הדקות הראשונות שקובעות אם מקשיבים לך. מתרגלים בזוגות בחדרים בזום, ואיתמר עובר בין החדרים.</p></div></li><li><span class="tm"><mark class="todo">שעה</mark></span><span class="dot"></span><div><h3>סבב 2: "יקר לי" ו"אחשוב על זה"</h3><p>ההתנגדויות שעוצרות הכי הרבה עסקאות. כל אחד עונה עליהן בקול, מול כולם, עד שזה יושב.</p></div></li><li><span class="tm"><mark class="todo">שעה</mark></span><span class="dot"></span><div><h3>סבב 3: הסגירה</h3><p>איך מבקשים את ההחלטה בלי להתנצל ובלי ללחוץ. סגירות חיות על עסקאות של משתתפים.</p></div></li><li><span class="tm"><mark class="todo">שעה</mark></span><span class="dot"></span><div><h3>סיכום: התוכנית לשבוע הבא</h3><p>כל משתתף יוצא עם 3 שיחות שהוא מתקשר אליהן השבוע, ועם התסריט שבנה בסדנה.</p></div></li></ol>
+<div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני בפנים &#8592;</a><p class="micro"><mark class="todo">מספר מקומות</mark> מקומות בלבד</p></div>
 </div></section>
 
 <section class="s"><div class="wrap">
@@ -115,9 +159,16 @@ footer.legal p{margin:0 0 6px}footer.legal a{color:#cfc9bb}footer.legal .pay{fon
 
 <section class="s"><div class="wrap who">
 <img src="../hachshara-itamar.webp" alt="איתמר שולם">
-<div><h2>מי <em>מעביר</em></h2>
-<p><b>איתמר שולם</b>, מייסד הכפלה עסקית. 13 שנים במכירות.</p>
-<p><mark class="todo">2-3 משפטים על הניסיון של איתמר במכירות ועל מי שהוא ליווה</mark></p></div>
+<div><p class="kicker"><i></i>מי מעביר</p><h2>איתמר <em>שולם</em></h2>
+<ul class="chk"><li>מייסד הכפלה עסקית</li><li>13 שנים במכירות, בשטח ולא מהצד</li><li>ליווה למעלה מ-100 בעלי עסקים בשנה האחרונה</li><li>מגיש הפודקאסט "הכפלה עסקית", מרצה ומוביל צוות מנטורים</li></ul>
+<p><mark class="todo">משפט אחד של איתמר: למה הוא מעביר את הסדנה הזו</mark></p></div>
+</div></section>
+
+<section class="s"><div class="wrap">
+<h2>מה אומרים <em>בעלי העסקים</em></h2><p class="lede"><mark class="todo">לבחור 3 סרטוני עדות מהערוץ, עדיף על מכירות וסגירות</mark></p>
+<div class="vids"><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div><div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small><mark class="todo">סרטון עדות</mark></small></div><div class="q"><p>"<mark class="todo">משפט אחד מהעדות</mark>"</p><span><mark class="todo">שם</mark> · <mark class="todo">סוג העסק</mark></span></div></div></div>
+<p class="more">עוד עדויות <a href="https://www.youtube.com/@%D7%90%D7%99%D7%AA%D7%9E%D7%A8%D7%A9%D7%95%D7%9C%D7%9D" target="_blank" rel="noopener">בערוץ היוטיוב של איתמר &#8592;</a></p>
+<div class="cta" style="margin-top:22px"><a class="btn" href="#buy">שמרו לי מקום בסדנה &#8592;</a></div>
 </div></section>
 
 <section class="s" id="buy"><div class="wrap buy">
@@ -126,8 +177,16 @@ footer.legal p{margin:0 0 6px}footer.legal a{color:#cfc9bb}footer.legal .pay{fon
 <p>שאלה לפני שנרשמים? <a href="https://wa.me/972533315315" style="color:var(--gold2);font-weight:700">כתבו לאיתמר בוואטסאפ</a></p></div>
 <div class="card"><p style="margin:0;color:#cfc8b8;font-weight:700">סדנת אקסטרים במכירות · <mark class="todo">יום ותאריך</mark></p>
 <p class="p"><mark class="todo">מחיר</mark> <small>₪</small></p><p class="pn">כולל מע"מ · <mark class="todo">תשלומים?</mark></p>
-<label class="c"><input type="checkbox" id="agree">קראתי ואני מסכים/ה ל<a href="../legal/terms/" target="_blank">תקנון ולמדיניות הביטולים</a></label>
-<a class="btn" id="pay" href="#">למעבר לתשלום מאובטח &#8592;</a><div class="err" id="err" role="alert"></div>
+<form class="co" id="co" novalidate>
+<div class="fld"><label for="co-name">שם מלא</label><input id="co-name" autocomplete="name" required><p class="m" id="co-name-m"></p></div>
+<div class="fld"><label for="co-phone">טלפון נייד</label><input id="co-phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required><p class="m" id="co-phone-m"></p></div>
+<div class="fld"><label for="co-email">אימייל (לשם נשלחים הקבלה והגישה)</label><input id="co-email" type="email" autocomplete="email" dir="ltr" required><p class="m" id="co-email-m"></p></div>
+<div class="hp" aria-hidden="true"><label>אתר<input id="co-site" tabindex="-1" autocomplete="off"></label></div>
+<label class="c" id="co-agree-w"><input type="checkbox" id="co-agree"><span>קראתי ואני מסכים/ה ל<a href="../legal/terms/" target="_blank">תקנון ולמדיניות הביטולים</a></span></label>
+<label class="c"><input type="checkbox" id="co-mkt"><span>אשמח לקבל תוכן ועדכונים במייל ובוואטסאפ (לא חובה)</span></label>
+<button class="btn" id="co-btn" type="submit">למעבר לתשלום מאובטח &#8592;</button>
+<p class="m" id="co-err" role="alert" style="color:#ff9a9a;font-size:14px;margin:8px 0 0"></p>
+</form>
 <p class="micro">אחרי התשלום תקבלו קבלה, ואת קישור הזום במייל ובוואטסאפ.</p></div>
 </div></section>
 
@@ -139,16 +198,43 @@ footer.legal p{margin:0 0 6px}footer.legal a{color:#cfc9bb}footer.legal .pay{fon
 <p class="pay">התשלום מאובטח ומתבצע אצל <mark class="todo">UPay</mark>. פרטי האשראי לא עוברים דרכנו ולא נשמרים אצלנו.</p>
 </div></footer>
 <script>
-{
-const P='%%PAY_URL_SALES%%';
-const CONFIG={payUrl:P.indexOf('%%')===0?'':P,wa:'972533315315',course:'סדנת אקסטרים במכירות',price:''};
-const pay=document.getElementById('pay'),agree=document.getElementById('agree'),err=document.getElementById('err');
-pay.addEventListener('click',e=>{e.preventDefault();err.textContent='';
- if(!agree.checked){err.textContent='צריך לאשר את התקנון לפני התשלום';agree.focus();return}
- try{window.fbq&&fbq('track','InitiateCheckout',{value:+CONFIG.price||undefined,currency:'ILS',content_name:CONFIG.course})}catch(x){}
- let u=CONFIG.payUrl;
- if(u){const q=new URLSearchParams(location.search),o=new URL(u,location.href);q.forEach((v,k)=>{if(/^utm_/.test(k))o.searchParams.set(k,v)});location.href=o.toString()}
- else location.href='https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent('היי, אני רוצה להירשם ל'+CONFIG.course);
-});
+(function(){
+var P='%%PAY_URL_SALES%%',K='%%CRM_KEY%%';
+var C={payUrl:P.indexOf('%%')===0?'':P,crmKey:K.indexOf('%%')===0?'':K,crm:'https://hakfala-leads.vercel.app/api/lead',src:'sales-workshop-checkout',product:'סדנת אקסטרים במכירות',price:'',wa:'972533315315'};
+function g(i){return document.getElementById(i)}
+var f=g('co'),btn=g('co-btn');
+function v(i){return (g(i).value||'').trim()}
+function mark(i,msg){g(i+'-m').textContent=msg;g(i).closest('.fld').classList.toggle('bad',!!msg);g(i).setAttribute('aria-invalid',msg?'true':'false');return !msg}
+function phoneOk(p){var n=p.replace(/[^\d]/g,'').replace(/^972/,'0');return /^0\d{8,9}$/.test(n)}
+function emailOk(m){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m)}
+var utm={};try{new URLSearchParams(location.search).forEach(function(val,k){if(/^utm_|^fbclid$/.test(k))utm[k]=val})}catch(e){}
+function toPay(name,phone,email){
+  try{window.fbq&&fbq('track','InitiateCheckout',{value:+C.price||undefined,currency:'ILS',content_name:C.product})}catch(e){}
+  try{sessionStorage.setItem('co',JSON.stringify({n:name,p:C.product,v:C.price}))}catch(e){}
+  if(C.payUrl){var o=new URL(C.payUrl,location.href);for(var k in utm)o.searchParams.set(k,utm[k]);location.href=o.toString();return}
+  location.href='https://wa.me/'+C.wa+'?text='+encodeURIComponent('היי, אני רוצה לרכוש: '+C.product+'\nשם: '+name+'\nטלפון: '+phone+'\nאימייל: '+email);
 }
+f.addEventListener('submit',function(e){
+  e.preventDefault();g('co-err').textContent='';
+  if(v('co-site'))return;
+  var name=v('co-name'),phone=v('co-phone'),email=v('co-email');
+  var a=mark('co-name',name.length<2?'נשמח לדעת איך קוראים לך':'');
+  var b=mark('co-phone',phoneOk(phone)?'':'צריך מספר נייד תקין, לדוגמה 0501234567');
+  var c=mark('co-email',emailOk(email)?'':'צריך כתובת אימייל תקינה');
+  var ok=g('co-agree').checked;g('co-agree-w').classList.toggle('bad',!ok);
+  if(!(a&&b&&c&&ok)){(!a?g('co-name'):!b?g('co-phone'):!c?g('co-email'):g('co-agree')).focus();if(!ok)g('co-err').textContent='צריך לאשר את התקנון לפני התשלום';return}
+  try{window.fbq&&fbq('track','Lead',{content_name:C.product})}catch(e){}
+  if(!C.crmKey){toPay(name,phone,email);return}
+  btn.disabled=true;btn.textContent='רגע, מעבירים לתשלום...';
+  var mkt=g('co-mkt').checked;
+  var body=new URLSearchParams({name:name,phone:phone,email:email,consent:mkt?'1':'0',
+    note:['התחיל רכישה: '+C.product+' ('+C.price+' ₪)','מקור: דף מכירה ממומן',mkt?'אישור דיוור: כן':'אישור דיוור: לא'].join(' | ')});
+  for(var k in utm)body.set(k,utm[k]);
+  var done=false,go=function(){if(done)return;done=true;toPay(name,phone,email)};
+  setTimeout(go,2500);
+  fetch(C.crm+'?k='+encodeURIComponent(C.crmKey)+'&src='+encodeURIComponent(C.src),{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body.toString()}).then(go,go);
+});
+var dk=document.querySelector('.dock'),by=g('buy');if(dk&&by&&window.IntersectionObserver)new IntersectionObserver(function(es){dk.style.display=es[0].isIntersecting?'none':''}).observe(by);
+['co-name','co-phone','co-email'].forEach(function(i){g(i).addEventListener('input',function(){if(g(i).closest('.fld').classList.contains('bad'))mark(i,'')})});
+})();
 </script></body></html>

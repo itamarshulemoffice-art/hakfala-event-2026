@@ -1,3 +1,4 @@
+from checkout import fields, script, CSS as CO_CSS
 # The extreme-sales workshop page (live on Zoom). Its own layout, same brand.
 # Imported by build-sales-pages.py, which passes in t() and footer().
 import re
@@ -43,6 +44,26 @@ W = {
 }
 
 CSS = r"""
+
+.hero.xs{padding:0}
+.xs{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);padding:0;min-height:min(88vh,720px)}
+.xs .ph{position:relative;background:#1a1a18}
+.xs .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xs .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(10,10,10,0) 50%,var(--ink) 100%)}
+.xs .tag{position:absolute;bottom:16px;right:16px;z-index:1;background:rgba(10,10,10,.75);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.xs .hx{display:flex;flex-direction:column;justify-content:center;padding-block:48px;max-width:none;margin:0}
+.xs .name{font-size:clamp(46px,6.4vw,96px)!important}
+.story{background:#f7f3ea;color:#171614}.story h2 em{color:#a3201a}.story .kicker{color:#a3201a}
+.story p{font-size:19px;margin:0 0 16px}.story .big{font-family:var(--display);font-weight:800;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#8a6a1c;margin:26px 0}
+.vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.vid{border-radius:16px;overflow:hidden;background:var(--ink2);border:1px solid var(--line)}
+.vid .frame{position:relative;aspect-ratio:9/12;background:radial-gradient(circle at 50% 40%,#2a2720,#121210);display:grid;place-items:center}
+.vid .play{width:60px;height:60px;border-radius:50%;background:var(--hot);display:grid;place-items:center}
+.vid .play:after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.vid .frame small{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute)}
+.vid .q{padding:16px}.vid .q p{margin:0 0 8px;font-weight:700}.vid .q span{font-size:14px;color:var(--mute)}
+.more{margin-top:14px;color:var(--mute)}.more a{color:var(--gold2);font-weight:700}
+@media (max-width:860px){.xs{grid-template-columns:minmax(0,1fr);min-height:0}.xs .ph{aspect-ratio:4/3.4}.xs .ph:after{background:linear-gradient(180deg,rgba(10,10,10,0) 55%,var(--ink) 100%)}.xs .hx{padding-block:6px 40px}.vids{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vids .vid:nth-child(3){display:none}}
 /* LAYOUT: a ring-side poster. Huge outlined name, a ticket strip, then a vertical run-of-show. */
 :root{color-scheme:dark;--ink:#0a0a0a;--ink2:#141413;--line:#2c2b27;--gold:#d4af37;--gold2:#f3dc8a;--text:#f2eee4;--mute:#a7a194;--hot:#ff5a36;
 --display:"Rubik","Heebo",Arial,sans-serif;--body:"Heebo",Arial,sans-serif}
@@ -128,21 +149,33 @@ def workshop_page(t, footer, biz):
     li = lambda xs, cls="chk": f'<ul class="{cls}">' + "".join(f"<li>{t(x)}</li>" for x in xs) + "</ul>"
     run = "".join(f'<li><span class="tm">{t(a)}</span><span class="dot"></span><div><h3>{t(h)}</h3><p>{t(p)}</p></div></li>' for a, h, p in w["agenda"])
     steps = "".join(f"<div><b>{t(a)}</b><p>{t(b)}</p></div>" for a, b in w["steps"])
+    vids = "".join(f'<div class="vid"><div class="frame"><span class="play" aria-hidden="true"></span><small>{t("[[סרטון עדות]]")}</small></div><div class="q"><p>"{t("[[משפט אחד מהעדות]]")}"</p><span>{t("[[שם]]")} · {t("[[סוג העסק]]")}</span></div></div>' for _ in range(3))
     faq = "".join(f"<details><summary>{t(q)}</summary><p>{t(a)}</p></details>" for q, a in w["faq"])
     plain = lambda s: re.sub(r"\[\[(.+?)\]\]", r"\1", s)
     return f"""<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{w['name']}</title><meta name="description" content="סדנה חיה בזום עם איתמר שולם: מתרגלים שיחות מכירה אמיתיות, התנגדויות וסגירה, ויוצאים עם תסריט אישי.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק. בלחיצה על התשלום הדף קורא ל-fbq('track','InitiateCheckout') אם הפיקסל מותקן. -->
-<style>{CSS}</style></head><body>
+<style>{CSS}{CO_CSS}</style></head><body>
 <div class="bar"><div class="wrap"><img src="../hachshara-logo.webp" alt="{biz['brand']}"><span class="when">{t(w['date'])} · {t(w['time'])} · בזום</span><a class="go" href="#buy">שמרו לי מקום</a></div></div>
-<header class="hero"><div class="wrap">
+<header class="hero xs"><div class="ph"><img src="../hachshara-event.jpg" alt="איתמר שולם מול קהל בעלי עסקים"><span class="tag">איתמר שולם · 13 שנים במכירות</span></div><div class="wrap hx">
 <p class="kicker"><i></i>סדנה חיה בזום · מספר המקומות מוגבל</p>
 <h1 class="name"><span class="o">סדנת</span> <span class="g">אקסטרים</span><br>במכירות</h1>
 <p class="sub">{t(w['length'])} בזום עם איתמר שולם. בלי שקפים ובלי הרצאות: שיחות מכירה אמיתיות, התנגדויות אמיתיות, וסגירות בלייב, עד שזה יושב לך בגוף. {t(w['promise'])}</p>
 <div class="ticket"><div><b>{t(w['date'])}</b><span>מתי</span></div><div><b>{t(w['time'])}</b><span>שעה</span></div><div><b>בזום</b><span>מכל מקום, מצלמה פתוחה</span></div><div><b>{t(w['price'])} ₪</b><span>מחיר</span></div></div>
 <div class="cta"><a class="btn" href="#buy">שמרו לי מקום בסדנה &#8592;</a><p class="micro">תשלום מאובטח · קישור הזום נשלח אחרי ההרשמה</p></div>
 </div></header>
+
+<section class="s story"><div class="wrap" style="max-width:780px">
+<p class="kicker"><i></i>הסיפור</p>
+<h2>הלקוח אמר "אני אחשוב על זה". <em>ואתה הסכמת.</em></h2>
+<p>זה קרה לכל בעל עסק. שיחה טובה, הלקוח מתעניין, המחיר עולה על השולחן, ואז השקט. "אני אחזור אליך". הוא לא חוזר.</p>
+<p>לא חסר לך ידע. קראת, שמעת פודקאסטים, אולי אפילו עשית קורס. אבל ברגע האמת, מול לקוח אמיתי, הגוף קופא והמילים נעלמות.</p>
+<p class="big">מכירה זה לא משהו שיודעים. זה משהו שעושים, עד שזה יושב בגוף.</p>
+<p>{t('[[הסיפור של איתמר: רגע אמיתי שבו הבין שתרגול מנצח ידע, ומה ראה אצל בעלי העסקים שליווה. 3-4 משפטים בשפה שלו]]')}</p>
+<p>בשביל זה בנינו את הסדנה הזו: כמה שעות של תרגול חי, בלי שקפים, על עסקאות אמיתיות שלך.</p>
+<div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני רוצה לתרגל את זה &#8592;</a></div>
+</div></section>
 
 <section class="s"><div class="wrap">
 <h2>למה <em>אקסטרים</em></h2><p class="lede">כי לשמוע על מכירות זה קל. לעשות את זה בקול, מול אנשים, כשמישהו אומר לך "יקר לי", זה מה שמשנה את החודש הבא שלך.</p>
@@ -155,6 +188,7 @@ def workshop_page(t, footer, biz):
 <section class="s"><div class="wrap">
 <h2>מה קורה <em>בסדנה</em></h2><p class="lede">חמישה סבבים. כל סבב: הסבר קצר, תרגול בזוגות בחדרים בזום, ותיקון מול כולם.</p>
 <ol class="run">{run}</ol>
+<div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני בפנים &#8592;</a><p class="micro">{t(w['seats'])} מקומות בלבד</p></div>
 </div></section>
 
 <section class="s"><div class="wrap">
@@ -169,9 +203,16 @@ def workshop_page(t, footer, biz):
 
 <section class="s"><div class="wrap who">
 <img src="../hachshara-itamar.webp" alt="{biz['owner']}">
-<div><h2>מי <em>מעביר</em></h2>
-<p><b>איתמר שולם</b>, מייסד {biz['brand']}. 13 שנים במכירות.</p>
-<p>{t('[[2-3 משפטים על הניסיון של איתמר במכירות ועל מי שהוא ליווה]]')}</p></div>
+<div><p class="kicker"><i></i>מי מעביר</p><h2>איתמר <em>שולם</em></h2>
+<ul class="chk"><li>מייסד {biz['brand']}</li><li>13 שנים במכירות, בשטח ולא מהצד</li><li>ליווה למעלה מ-100 בעלי עסקים בשנה האחרונה</li><li>מגיש הפודקאסט "הכפלה עסקית", מרצה ומוביל צוות מנטורים</li></ul>
+<p>{t('[[משפט אחד של איתמר: למה הוא מעביר את הסדנה הזו]]')}</p></div>
+</div></section>
+
+<section class="s"><div class="wrap">
+<h2>מה אומרים <em>בעלי העסקים</em></h2><p class="lede">{t('[[לבחור 3 סרטוני עדות מהערוץ, עדיף על מכירות וסגירות]]')}</p>
+<div class="vids">{vids}</div>
+<p class="more">עוד עדויות <a href="https://www.youtube.com/@%D7%90%D7%99%D7%AA%D7%9E%D7%A8%D7%A9%D7%95%D7%9C%D7%9D" target="_blank" rel="noopener">בערוץ היוטיוב של איתמר &#8592;</a></p>
+<div class="cta" style="margin-top:22px"><a class="btn" href="#buy">שמרו לי מקום בסדנה &#8592;</a></div>
 </div></section>
 
 <section class="s" id="buy"><div class="wrap buy">
@@ -180,25 +221,11 @@ def workshop_page(t, footer, biz):
 <p>שאלה לפני שנרשמים? <a href="https://wa.me/{biz['wa']}" style="color:var(--gold2);font-weight:700">כתבו לאיתמר בוואטסאפ</a></p></div>
 <div class="card"><p style="margin:0;color:#cfc8b8;font-weight:700">{w['name']} · {t(w['date'])}</p>
 <p class="p">{t(w['price'])} <small>₪</small></p><p class="pn">{t(w['price_note'])}</p>
-<label class="c"><input type="checkbox" id="agree">קראתי ואני מסכים/ה ל<a href="../legal/terms/" target="_blank">תקנון ולמדיניות הביטולים</a></label>
-<a class="btn" id="pay" href="#">למעבר לתשלום מאובטח &#8592;</a><div class="err" id="err" role="alert"></div>
+{fields()}
 <p class="micro">אחרי התשלום תקבלו קבלה, ואת קישור הזום במייל ובוואטסאפ.</p></div>
 </div></section>
 
 <section class="s"><div class="wrap" style="max-width:820px"><h2>שאלות <em>נפוצות</em></h2>{faq}</div></section>
 {footer(1)}
-<script>
-{{
-const P='%%PAY_URL_SALES%%';
-const CONFIG={{payUrl:P.indexOf('%%')===0?'':P,wa:'{biz['wa']}',course:'{w['name']}',price:{repr(w['price'] if w['price'].isdigit() else '')}}};
-const pay=document.getElementById('pay'),agree=document.getElementById('agree'),err=document.getElementById('err');
-pay.addEventListener('click',e=>{{e.preventDefault();err.textContent='';
- if(!agree.checked){{err.textContent='צריך לאשר את התקנון לפני התשלום';agree.focus();return}}
- try{{window.fbq&&fbq('track','InitiateCheckout',{{value:+CONFIG.price||undefined,currency:'ILS',content_name:CONFIG.course}})}}catch(x){{}}
- let u=CONFIG.payUrl;
- if(u){{const q=new URLSearchParams(location.search),o=new URL(u,location.href);q.forEach((v,k)=>{{if(/^utm_/.test(k))o.searchParams.set(k,v)}});location.href=o.toString()}}
- else location.href='https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent('היי, אני רוצה להירשם ל'+CONFIG.course);
-}});
-}}
-</script></body></html>
+{script('%%PAY_URL_SALES%%','sales-workshop-checkout',w['name'],(w['price'] if w['price'].isdigit() else ''),biz['wa'])}</body></html>
 """
