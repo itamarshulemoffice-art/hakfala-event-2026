@@ -106,8 +106,8 @@ footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
 <div class="say"><p>AI מחזק את הרובד המקצועי של כל מקצוע. מי שמזיז אנשים במנטלי ובעסקי, אותו אי אפשר להחליף. על שלושת הרבדים האלה בנויה שיטת הכפלה עסקית.</p></div>
 <div class="cta">
 <h3>התשובה המלאה: ביום שני, 30.11, ב-20:30</h3>
-<p>וובינר חינמי בזום. איתמר שולם מראה בלייב איך מזיזים בן אדם כשהידע כבר לא חסר, ואיך הופכים את זה למקצוע. מי שנשאר עד הסוף מקבל את מפת הערך המוסף.</p>
-<a class="btn" id="reg" href="../webinar/?utm_source=quiz">שמרו לי מקום בוובינר &#8592;</a>
+<p>וובינר חינמי בזום: איך מכפילים את העסק בעידן ה-AI. איתמר שולם מציג את 6 מנגנוני ההכפלה, ומה ש-AI לא יעשה בשבילכם. מי שנשאר עד הסוף מקבל במתנה את מפת ההכפלה.</p>
+<a class="btn" id="reg" href="../webinar/?m=4&utm_source=quiz">שמרו לי מקום בוובינר &#8592;</a>
 </div>
 <div class="share">
 <a class="btn ghost" id="shareWa" href="#" target="_blank" rel="noopener">שתפו בוואטסאפ</a>
@@ -154,7 +154,7 @@ function compute(){
  [['P','pP','tP'],['M','pM','tM'],['B','pB','tB']].forEach(([k,p,t])=>{const pc=Math.round(s[k]/m[k]*100);$(p).textContent=pc+'%';$(t).style.width=pc+'%'});
  const url=location.origin+location.pathname;
  $('shareWa').href='https://wa.me/?text='+encodeURIComponent('עשיתי את המבחן "תוך כמה זמן AI מחליף אותך?" ויצא לי: '+years+' ('+prof+'). תבדקו את עצמכם, לוקח דקה: '+url);
- const r=new URLSearchParams(location.search);const reg=new URLSearchParams({utm_source:r.get('utm_source')?'quiz_'+r.get('utm_source'):'quiz'});$('reg').href='../webinar/?'+reg.toString();
+ const r=new URLSearchParams(location.search);const reg=new URLSearchParams({m:'4',utm_source:r.get('utm_source')?'quiz_'+r.get('utm_source'):'quiz'});$('reg').href='../webinar/?'+reg.toString();
 }
 $('start').onclick=()=>{i=0;ans=[];show('quiz');render()};
 $('back').onclick=()=>{if(i>0){i--;render()}};
