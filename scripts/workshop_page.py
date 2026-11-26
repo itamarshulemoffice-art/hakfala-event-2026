@@ -11,11 +11,11 @@ W = {
     "length": "3 שעות",
     "access": "[[משך הגישה]]",
     "pains": [
-        "הלקוח אמר \"אני אחשוב על זה\", ומאז הוא לא עונה",
-        "שמעת \"יקר לי\" ומיד הצעת הנחה",
-        "שלחת הצעת מחיר, וחיכית. ועוד חיכית",
-        "אתה מרגיש נודניק כשאתה מתקשר פעם שנייה",
-        "המוצר שלך טוב יותר, ובכל זאת הם סגרו עם מישהו אחר",
+        "\"אני אחשוב על זה\". ומאז שקט",
+        "\"יקר לי\". ואתה כבר מוריד מחיר",
+        "שלחת הצעת מחיר. וחיכית. ועוד חיכית",
+        "מתקשר פעם שנייה ומרגיש נודניק",
+        "המוצר שלך טוב יותר. והם סגרו עם המתחרה",
     ],
     "quotes": [
         ("רוב תהליכי המכירה הם שיחות טלפון. ואת חצי הדקה הראשונה אי אפשר לתקן.", "שלב 1"),
@@ -107,6 +107,8 @@ a{color:inherit}
 .name{font-family:var(--display);font-weight:900;line-height:.92;margin:0;font-size:clamp(52px,11vw,132px);letter-spacing:-.02em;text-wrap:balance}
 .name .o{color:transparent;-webkit-text-stroke:2px var(--gold)}
 .name .g{color:var(--gold)}
+.punch{font-family:var(--display);font-weight:900;font-size:clamp(28px,4.4vw,46px);line-height:1.1;margin:22px 0 0;color:#fff;text-wrap:balance}.punch em{font-style:normal;color:var(--hot)}
+.story .tl{list-style:none;padding:0;margin:18px 0 0;border-inline-start:3px solid #a3201a}.story .tl li{padding:10px 18px;font-size:19px;font-weight:600}.story .tl b{display:block;font-family:var(--display);font-size:24px;color:#a3201a;line-height:1.1}
 .sub{font-size:clamp(19px,2.2vw,24px);max-width:36em;margin:22px 0 0;color:#e2dccd}
 .ticket{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:34px 0 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--ink2)}
 .ticket div{padding:14px 16px;border-inline-start:1px dashed var(--line)}
@@ -187,23 +189,24 @@ def workshop_page(t, footer, biz):
 <style>{CSS}{CO_CSS}{TV_CSS}</style></head><body>
 <div class="bar"><div class="wrap"><img src="../hachshara-logo.webp" alt="{biz['brand']}"><span class="when">3 שעות · 5 שלבים · גישה מיידית</span><a class="go" href="#buy">לצפייה בסדנה</a></div></div>
 <header class="hero xs"><div class="ph"><img src="../hachshara-event.jpg" alt="איתמר שולם מול קהל בעלי עסקים"><span class="tag">איתמר שולם · 13 שנים במכירות</span></div><div class="wrap hx">
-<p class="kicker"><i></i>צולמה בלייב באולם · צופים מתי שנוח</p>
+<p class="kicker"><i></i>הסדנה שבעלי עסקים שילמו 500 ₪ כדי לשבת בה</p>
 <h1 class="name"><span class="o">סדנת</span> <span class="g">אקסטרים</span><br>במכירות</h1>
-<p class="sub">שלוש שעות מלאות על סגירת עסקאות, בלי להתחנן ובלי להוריד מחיר. חמשת השלבים של שיחת מכירה, מהשנייה הראשונה ועד הסגירה, כמו שאיתמר מלמד אותם באולם מול בעלי עסקים.</p>
+<p class="punch">תפסיק להוריד מחיר.<br><em>תתחיל לסגור.</em></p>
+<p class="sub">3 שעות. 5 שלבים. מהשנייה הראשונה בשיחה ועד שהלקוח אומר כן. בלי להתחנן, בלי הנחות, בלי "אני אחשוב על זה". צולם בלייב באולם, ואתה צופה מהבית.</p>
 <div class="ticket"><div><b>3 שעות</b><span>סדנה מלאה</span></div><div><b>5 שלבים</b><span>מפתיחה ועד סגירה</span></div><div><b>מיד</b><span>גישה אחרי התשלום</span></div><div><b>{t(w['price'])} ₪</b><span>מחיר</span></div></div>
-<div class="cta"><a class="btn" href="#buy">אני רוצה את הסדנה &#8592;</a><p class="micro">תשלום מאובטח · קישור הצפייה נשלח מיד אחרי התשלום</p></div>
+<div class="cta"><a class="btn" href="#buy">אני רוצה לסגור יותר עסקאות &#8592;</a><p class="micro">תשלום מאובטח · קישור הצפייה נשלח מיד אחרי התשלום</p></div>
 </div></header>
 
 <section class="s story"><div class="wrap" style="max-width:780px">
 <p class="kicker"><i></i>מכיר את זה?</p>
-<h2>העסקה לא נפלה במחיר. <em>היא נפלה הרבה קודם.</em></h2>
+<h2>העסקה לא נפלה במחיר. <em>היא נפלה בדקה הראשונה.</em></h2>
 {pains}
-<p style="margin-top:22px">אם סימנת אפילו אחד, זו לא בעיה של מוצר ולא של מחיר. זו שיחת מכירה שאין לה שיטה.</p>
+<p class="big" style="margin-top:26px">סימנת אחד? זו לא בעיה של מוצר. זו לא בעיה של מחיר. <span style="color:#a3201a">זו שיחת מכירה בלי שיטה.</span></p>
 <p class="kicker" style="margin-top:44px"><i></i>הסיפור</p>
-<h2>מחנות אופניים <em>למחלקות מכירה</em></h2>
-<p>איתמר התחיל למכור בגיל 12, בחנות אופניים בבני ברק, ב-25 שקל לשעה. משם לענף הבנייה, שבו ניהל בגיל 22 פרויקט של 100 עובדים, ומשם לשיווק נדל"ן. במשרד הראשון לא היה תקציב להכשרה, אז הוא בנה סדנה בעצמו, גייס דרכה אנשי מכירות, והקים מחלקות שמכרו בהיקפים של מיליונים.</p>
+<h2>מחנות אופניים <em>למחלקות שמוכרות במיליונים</em></h2>
+<ul class="tl"><li><b>גיל 12</b>חנות אופניים בבני ברק. 25 שקל לשעה</li><li><b>גיל 22</b>מנהל פרויקט בנייה עם 100 עובדים</li><li><b>נדל"ן</b>אין תקציב להכשרה? בונה סדנה בעצמו</li><li><b>היום</b>מחלקות מכירה שמוכרות במיליונים</li></ul>
 <p class="big">אם אתה יודע למכור, מה יכול לעצור אותך?</p>
-<p>הסדנה הזו היא אותה סדנה שאיתמר מעביר באולם כבר יותר מעשר פעמים. בעלי עסקים שילמו עליה 500 שקל כדי לשבת בחדר. עכשיו היא מצולמת במלואה, ואפשר לצפות בה מהבית.</p>
+<p>יותר מעשר פעמים באולם. 500 ₪ לכיסא. <b>עכשיו היא מצולמת במלואה, ואתה צופה מהבית.</b></p>
 <div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני רוצה לסגור יותר &#8592;</a></div>
 </div></section>
 
