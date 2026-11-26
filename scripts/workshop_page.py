@@ -6,10 +6,29 @@ import re
 
 W = {
     "name": "סדנת אקסטרים במכירות",
-    "price": "[[מחיר]]",
+    "price": "[[500]]",
     "price_note": "כולל מע\"מ · תשלום אחד · גישה מיידית",
     "length": "3 שעות",
     "access": "[[משך הגישה]]",
+    "pains": [
+        "הלקוח אמר \"אני אחשוב על זה\", ומאז הוא לא עונה",
+        "שמעת \"יקר לי\" ומיד הצעת הנחה",
+        "שלחת הצעת מחיר, וחיכית. ועוד חיכית",
+        "אתה מרגיש נודניק כשאתה מתקשר פעם שנייה",
+        "המוצר שלך טוב יותר, ובכל זאת הם סגרו עם מישהו אחר",
+    ],
+    "quotes": [
+        ("רוב תהליכי המכירה הם שיחות טלפון. ואת חצי הדקה הראשונה אי אפשר לתקן.", "שלב 1"),
+        ("איתור צרכים וכאבים. פה נמצא הקסם, פה הכל מתחיל ופה הכל נגמר.", "שלב 2"),
+        ("התנגדות היא לא \"לא\". היא בקשה למידע.", "שלב 4"),
+        ("הלקוח סוגר עם מי שמרחיק אותו הכי רחוק מהכאב. לא עם הזול.", "שלב 5"),
+    ],
+    "stack": [
+        ("הסדנה המלאה, 3 שעות", "מצולמת באולם בשבע מצלמות"),
+        ("חמשת שלבי שיחת המכירה", "מהפתיחה ועד הסגירה"),
+        ("ארבעת סגנונות התקשורת", "מקדם, מניע, תומך ומנתח"),
+        ("התשובות להתנגדויות הנפוצות", "\"יקר לי\", \"אחשוב על זה\", \"צריך לשאול את אשתי\""),
+    ],
     # Itamar's real workshop: recorded live in the hall (7 cameras), hosted on Schooler. 5 stages of a sale.
     "agenda": [
         ("שלב 1", "פתיחה ויצירת כימיה", "חצי הדקה הראשונה, שבה הלקוח מחליט אם אתה מוכר או יועץ. ארבעת סגנונות התקשורת: מקדם, מניע, תומך ומנתח, ואיך מדברים עם כל אחד מהם."),
@@ -60,6 +79,14 @@ CSS = r"""
 .vid .play:after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:5px}
 .vid .frame small{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute)}
 .vid .q{padding:16px}.vid .q p{margin:0 0 8px;font-weight:700}.vid .q span{font-size:14px;color:var(--mute)}
+.pain{list-style:none;padding:0;margin:0 0 8px}.pain li{position:relative;padding:12px 32px 12px 0;border-bottom:1px solid rgba(0,0,0,.1);font-size:19px;font-weight:700}.pain li:before{content:"✕";position:absolute;right:0;top:12px;color:#a3201a;font-weight:900}
+.qs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.qs figure{margin:0;background:var(--ink2);border:1px solid var(--line);border-right:4px solid var(--hot);border-radius:14px;padding:22px}
+.qs blockquote{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,25px);line-height:1.3}
+.qs figcaption{margin-top:10px;font-size:13px;color:var(--gold2);font-weight:700}
+.stack{list-style:none;margin:0 0 16px;padding:0}.stack li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}.stack b{color:var(--text)}.stack span{color:var(--mute);font-size:13.5px;text-align:left}
+.was{color:var(--mute);font-size:15px;margin:0}
+@media (max-width:860px){.qs{grid-template-columns:minmax(0,1fr)}.stack li{flex-direction:column;gap:0}.stack span{text-align:right}}
 .more{margin-top:14px;color:var(--mute)}.more a{color:var(--gold2);font-weight:700}
 @media (max-width:860px){.xs{grid-template-columns:minmax(0,1fr);min-height:0}.xs .ph{aspect-ratio:4/3.4}.xs .ph:after{background:linear-gradient(180deg,rgba(10,10,10,0) 55%,var(--ink) 100%)}.xs .hx{padding-block:6px 40px}.vids{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vids .vid:nth-child(3){display:none}}
 /* LAYOUT: a ring-side poster. Huge outlined name, a ticket strip, then a vertical run-of-show. */
@@ -148,6 +175,9 @@ def workshop_page(t, footer, biz):
     run = "".join(f'<li><span class="tm">{t(a)}</span><span class="dot"></span><div><h3>{t(h)}</h3><p>{t(p)}</p></div></li>' for a, h, p in w["agenda"])
     steps = "".join(f"<div><b>{t(a)}</b><p>{t(b)}</p></div>" for a, b in w["steps"])
     vids = tv_grid(["MwQCIENZgNY", "a7MfGVZ2jOo", "V9oCiN17GRw", "HXH6TiDErKE", "IdDaDOZIY0Y", "iUQNNYWroYg"])
+    pains = '<ul class="pain">' + "".join(f"<li>{t(x)}</li>" for x in w["pains"]) + "</ul>"
+    quotes = "".join(f'<figure><blockquote>"{t(q)}"</blockquote><figcaption>{c} · איתמר שולם</figcaption></figure>' for q, c in w["quotes"])
+    stack = "".join(f"<li><b>{t(a)}</b><span>{t(b)}</span></li>" for a, b in w["stack"])
     faq = "".join(f"<details><summary>{t(q)}</summary><p>{t(a)}</p></details>" for q, a in w["faq"])
     plain = lambda s: re.sub(r"\[\[(.+?)\]\]", r"\1", s)
     return f"""<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -165,9 +195,12 @@ def workshop_page(t, footer, biz):
 </div></header>
 
 <section class="s story"><div class="wrap" style="max-width:780px">
-<p class="kicker"><i></i>הסיפור</p>
-<h2>הלקוח אמר "אני אחשוב על זה". <em>ואתה הסכמת.</em></h2>
-<p>שיחה טובה, הלקוח מתעניין, המחיר עולה על השולחן, ואז השקט. "אני אחזור אליך". הוא לא חוזר. ברוב המקרים העסקה לא נפלה במחיר. היא נפלה הרבה קודם, בדקות שבהן לא הבנת מה באמת כואב לו.</p>
+<p class="kicker"><i></i>מכיר את זה?</p>
+<h2>העסקה לא נפלה במחיר. <em>היא נפלה הרבה קודם.</em></h2>
+{pains}
+<p style="margin-top:22px">אם סימנת אפילו אחד, זו לא בעיה של מוצר ולא של מחיר. זו שיחת מכירה שאין לה שיטה.</p>
+<p class="kicker" style="margin-top:44px"><i></i>הסיפור</p>
+<h2>מחנות אופניים <em>למחלקות מכירה</em></h2>
 <p>איתמר התחיל למכור בגיל 12, בחנות אופניים בבני ברק, ב-25 שקל לשעה. משם לענף הבנייה, שבו ניהל בגיל 22 פרויקט של 100 עובדים, ומשם לשיווק נדל"ן. במשרד הראשון לא היה תקציב להכשרה, אז הוא בנה סדנה בעצמו, גייס דרכה אנשי מכירות, והקים מחלקות שמכרו בהיקפים של מיליונים.</p>
 <p class="big">אם אתה יודע למכור, מה יכול לעצור אותך?</p>
 <p>הסדנה הזו היא אותה סדנה שאיתמר מעביר באולם כבר יותר מעשר פעמים. בעלי עסקים שילמו עליה 500 שקל כדי לשבת בחדר. עכשיו היא מצולמת במלואה, ואפשר לצפות בה מהבית.</p>
@@ -186,6 +219,11 @@ def workshop_page(t, footer, biz):
 <h2>חמשת <em>השלבים</em></h2><p class="lede">כל שיחת מכירה עוברת את חמשת השלבים האלה. מי שמדלג על אחד מהם, משלם עליו בסגירה.</p>
 <ol class="run">{run}</ol>
 <div class="cta" style="margin-top:26px"><a class="btn" href="#buy">אני רוצה את הסדנה &#8592;</a></div>
+</div></section>
+
+<section class="s"><div class="wrap">
+<h2>משפטים <em>מהסדנה</em></h2><p class="lede">ככה איתמר מדבר באולם. ככה תשמעו את זה גם בהקלטה.</p>
+<div class="qs">{quotes}</div>
 </div></section>
 
 <section class="s"><div class="wrap">
@@ -217,6 +255,8 @@ def workshop_page(t, footer, biz):
 <p class="seats">● גישה ל-{t(w['access'])}</p>
 <p>שאלה לפני שנרשמים? <a href="https://wa.me/{biz['wa']}" style="color:var(--gold2);font-weight:700">כתבו לאיתמר בוואטסאפ</a></p></div>
 <div class="card"><p style="margin:0;color:#cfc8b8;font-weight:700">{w['name']} · 3 שעות</p>
+<ul class="stack">{stack}</ul>
+<p class="was">בעלי עסקים שילמו 500 ₪ כדי לשבת באולם</p>
 <p class="p">{t(w['price'])} <small>₪</small></p><p class="pn">{t(w['price_note'])}</p>
 {fields()}
 <p class="micro">אחרי התשלום תקבלו קבלה, ואת קישור הצפייה במייל ובוואטסאפ.</p></div>
