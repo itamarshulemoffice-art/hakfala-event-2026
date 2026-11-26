@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>וובינר חינם: בעידן ה-AI, מי צריך יועצים עסקיים?</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<title>וובינר חינם: איך מכפילים את העסק בעידן ה-AI</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק -->
 <style>
 /*
@@ -61,15 +61,15 @@ footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
 <div class="wrap top"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><a href="#form">שמרו לי מקום</a></div>
 <section class="wrap hero">
 <div><span class="tag">וובינר חינם · 90 דקות</span>
-<h1>בעידן ה-AI,<br>מי צריך <b>יועצים עסקיים?</b></h1>
-<p class="lead">ה-AI יחליף כל מקצוע. חוץ מאחד. 90 דקות בזום עם איתמר שולם: ידע לבד לא מניע אנשים לפעולה, ובוובינר תראו מה כן.</p>
+<h1 id="mh">איך מכפילים את העסק<br><b>בעידן ה-AI?</b></h1>
+<p class="lead" id="ml">כל המנגנונים להכפלת העסק, במקום אחד: פיננסים, מוצר והצעה, שיווק ומכירות, וסוכני AI. 90 דקות בזום עם איתמר שולם, ובסוף תדעו מה הצעד הבא שלכם.</p>
 <ul class="facts"><li>יום שני, 30.11<span>תאריך</span></li><li>20:30<span>שעה</span></li><li>בזום<span>מכל מקום</span></li><li>חינם<span>מספר המקומות בזום מוגבל</span></li></ul>
 <a class="btn" href="#form">שמרו לי מקום &#8592;</a></div>
 <div class="photo"><img src="../hachshara-itamar.webp" alt="איתמר שולם"><p><b>איתמר שולם</b>מייסד הכפלה עסקית · 13 שנים במכירות</p></div>
 </section>
 <section class="band"><div class="wrap"><h2>מה תקבלו ב-90 הדקות האלה</h2><p class="sub">ידע לבד לא מניע אנשים לפעולה. בוובינר תראו מה כן.</p>
 <div class="cards">
-<div class="card"><b>1</b><h3>שיטת הכפלה עסקית</h3><p>שלושה רבדים: מקצועי, מנטלי, עסקי. ולמה AI מחזק רק את הראשון.</p></div>
+<div class="card"><b>1</b><h3>כל מנגנוני ההכפלה</h3><p>פיננסים, מוצר והצעה, שיווק ומכירות וסוכני AI, בשיטת הכפלה עסקית: מקצועי, מנטלי ועסקי. ולמה AI מחזק רק את הרובד הראשון.</p></div>
 <div class="card"><b>2</b><h3>כיסא חם בלייב</h3><p>בעל עסק אמיתי שיודע מה לעשות ולא עושה. ותראו מה באמת מזיז אותו לפעולה.</p></div>
 <div class="card"><b>3</b><h3>מפת הערך המוסף במתנה</h3><p>למי שנשאר עד הסוף: איפה במקצוע שלכם אתם רק מעבירים מידע, ואפשר להחליף אתכם, ואיפה אתם מזיזים אנשים.</p></div>
 </div></div></section>
@@ -86,6 +86,15 @@ footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
 <footer>הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
 <script>
 {
+const M={
+ '1':['איך מכפילים את העסק<br><b>בעידן ה-AI?</b>','כל המנגנונים להכפלת העסק, במקום אחד: פיננסים, מוצר והצעה, שיווק ומכירות, וסוכני AI. 90 דקות בזום עם איתמר שולם, ובסוף תדעו מה הצעד הבא שלכם.','איך מכפילים את העסק בעידן ה-AI'],
+ '2':['בעידן ה-AI,<br>מי צריך <b>יועצים עסקיים?</b>','ה-AI נותן לכולם ידע. אבל ידע לבד לא מניע אנשים לפעולה. 90 דקות בזום עם איתמר שולם: כל המנגנונים להכפלת העסק, ומה עושה מי שמזיז אנשים מנקודה A לנקודה B.','בעידן ה-AI, מי צריך יועצים עסקיים?'],
+ '3':['אם אתה לא כאן,<br><b>העסק שלך נכחד</b>','עסקים שימשיכו לעבוד כמו פעם פשוט יישארו מאחור. 90 דקות בזום עם איתמר שולם: כל המנגנונים להכפלת העסק, ואיך משתמשים ב-AI כדי לרוץ קדימה.','אם אתה לא כאן, העסק שלך נכחד']};
+const q=new URLSearchParams(location.search);let m=q.get('m')||'';
+if(!M[m]){const c=(q.get('utm_campaign')||'').match(/m([123])/);m=c?c[1]:''}
+if(M[m]){window.MSG=m;document.getElementById('mh').innerHTML=M[m][0];document.getElementById('ml').textContent=M[m][1];document.title='וובינר חינם: '+M[m][2]}
+}
+{
 const K='%%CRM_KEY%%';
 const CONFIG={endpoint:'https://hakfala-leads.vercel.app/api/lead',crmKey:K.indexOf('%%')===0?'':K,src:'hachshara-webinar',wa:'972533315315'};
 const f=document.getElementById('lead'),ok=document.getElementById('ok'),er=document.getElementById('err');
@@ -93,7 +102,7 @@ f.addEventListener('submit',async e=>{e.preventDefault();er.textContent='';
  const d=Object.fromEntries(new FormData(f));
  if(!d.name||!d.phone||!d.email){er.textContent='צריך שם, טלפון ומייל';return}
  if(!f.consent.checked){er.textContent='צריך לאשר קבלת עדכונים';return}
- const note='הרשמה לוובינר 30.11';let sent=false;
+ const note='הרשמה לוובינר 30.11'+(window.MSG?' · מסר '+window.MSG:'');let sent=false;
  if(CONFIG.crmKey){try{await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:(()=>{const q=new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note,consent:'1'});new URLSearchParams(location.search).forEach((v,k)=>{if(/^utm_/.test(k))q.set(k,v)});return q.toString()})()});sent=true}catch(x){}}
  f.style.display='none';ok.style.display='block';
  if(!sent){const t=encodeURIComponent(note+'\nשם: '+d.name+'\nטלפון: '+d.phone+'\nמייל: '+d.email);document.getElementById('wa').href='https://wa.me/'+CONFIG.wa+'?text='+t;document.getElementById('wa').style.display='inline-flex'}
