@@ -44,6 +44,9 @@ COURSES = {
     },
     "sales": {
         "src": "workshop-extreme-sales",
+        "cta": "שמרו לי מקום בסדנה",
+        "micro": "תשלום מאובטח · מספר המקומות מוגבל · ביטול לפי התקנון",
+        "after": "אחרי התשלום תקבלו קבלה ואת כל פרטי הסדנה במייל ובוואטסאפ.",
         "title": "סדנת אקסטרים במכירות",
         "tag": "סדנת אקסטרים במכירות · [[מחיר]] ₪",
         "h1": "סדנה אחת.<br>לחץ אמיתי.<br><b>יוצאים ממנה סוגרים.</b>",
@@ -107,8 +110,8 @@ def course_page(key, c):
 <h1>{t(c['h1'])}</h1>
 <p class="lead">{t(c['lead'])}</p>
 <ul class="facts">{facts}</ul>
-<a {buy}>אני רוצה את הקורס · {t(c['price'])} ₪ &#8592;</a>
-<p class="micro">תשלום מאובטח · גישה מיידית · ביטול לפי התקנון</p></div>
+<a {buy}>{c.get('cta','אני רוצה את הקורס')} · {t(c['price'])} ₪ &#8592;</a>
+<p class="micro">{c.get('micro','תשלום מאובטח · גישה מיידית · ביטול לפי התקנון')}</p></div>
 <div class="photo"><img src="../hachshara-itamar.webp" alt="{BIZ['owner']}"><p><b>{BIZ['owner']}</b>מייסד {BIZ['brand']} · 13 שנים במכירות</p></div>
 </section>
 <section class="band"><div class="wrap"><h2>{t(c['cards_title'])}</h2><p class="sub">מעשי, קצר, ומוכן ליישום כבר מחר בבוקר.</p>
@@ -123,7 +126,7 @@ def course_page(key, c):
 <div class="pricebox"><p class="name">{t(c['title'])}</p><p class="price">{t(c['price'])} <small>₪</small></p><p class="pn">{t(c['price_note'])}</p>
 <label class="c"><input type="checkbox" id="agree">קראתי ואני מסכים/ה ל<a href="../legal/terms/" target="_blank">תקנון ולמדיניות הביטולים</a></label>
 <a class="btn buy" id="pay" href="#">למעבר לתשלום מאובטח &#8592;</a><div class="err" id="err" role="alert"></div>
-<p class="micro">אחרי התשלום תקבלו קבלה וקישור כניסה במייל.</p></div>
+<p class="micro">{c.get('after','אחרי התשלום תקבלו קבלה וקישור כניסה במייל.')}</p></div>
 </div></section>
 <section class="wrap faq"><h2>שאלות נפוצות</h2>{faq}</section>
 {footer(1)}
