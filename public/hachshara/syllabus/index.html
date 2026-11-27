@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הסילבוס המלא: הכשרת יועצים עסקיים</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק -->
+<style>
+/*
+VOICE: איתמר. חד, ישיר, קצר. דף אחד, פעולה אחת.
+IDEA: הזמנה לחדר: שחור, זהב, ואדם אחד שמביט בך.
+PICTURE: התמונה של איתמר, גדולה, ליד ההבטחה.
+COLOUR and TYPE: שחור וזהב של הכפלה עסקית, Heebo כבד.
+LAYOUT: הבטחה וטופס למעלה, 3 כרטיסים, טופס שוב בסוף.
+*/
+:root{color-scheme:light;--gold:#c9a44b;--gold2:#e8cf7a;--ink:#0b0c0c;--paper:#faf7f0}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--ink);color:#f4efe2;font:17px/1.6 "Heebo",Arial,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.top img{height:46px}
+.top a{font-weight:700;font-size:15px;text-decoration:none;border:1px solid #3a3d3b;border-radius:999px;padding:9px 16px}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;padding:24px 0 56px}
+.tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:14px;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;margin:0 0 16px;font-weight:900;text-wrap:balance}
+h1 b{background:linear-gradient(90deg,#F8E592,#C9A44B,#B8913A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:#d8d2c4;margin:0 0 22px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+.facts li{border:1px solid #3a3d3b;border-radius:10px;padding:9px 14px;font-weight:700;font-size:15px}
+.facts li span{display:block;font-weight:400;font-size:12.5px;color:#a9a397}
+.photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#1a1c1b}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.photo:after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(11,12,12,.85))}
+.photo p{position:absolute;bottom:14px;right:16px;left:16px;margin:0;z-index:1;font-size:14px;color:#e9e3d6}
+.photo p b{display:block;font-size:18px;color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#111;font-weight:900;font-size:19px;border:0;border-radius:12px;padding:16px 26px;min-height:56px;cursor:pointer;text-decoration:none}
+.btn:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.band{background:var(--paper);color:#141615;padding:56px 0}
+.band h2{font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:0 0 8px;font-weight:900}
+.band .sub{color:#5e5b54;margin:0 0 26px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e6dfcc;border-top:4px solid var(--gold);border-radius:12px;padding:20px}
+.card b{display:block;font-size:13px;color:#9a7a2c;margin-bottom:4px}
+.card h3{margin:0 0 6px;font-size:20px;line-height:1.2}
+.card p{margin:0;font-size:15.5px;color:#4a4740}
+.form{background:#141615;border:1px solid #2b2e2c;border-radius:16px;padding:26px;max-width:560px}
+.form h2{margin:0 0 4px;font-size:26px;font-weight:900}
+.form p.s{margin:0 0 16px;color:#b9b3a6;font-size:15px}
+label.f{display:block;font-size:14px;color:#cfc9bb;margin:0 0 12px}
+label.f input{display:block;width:100%;margin-top:5px;font:16px Heebo,Arial;padding:13px 14px;border-radius:10px;border:1px solid #3a3d3b;background:#0b0c0c;color:#fff}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#b9b3a6;margin:4px 0 16px}
+label.c input{width:20px;height:20px;accent-color:var(--gold);flex:none;margin-top:2px}
+.form .btn{width:100%}
+.ok{display:none;background:#14281c;border:1px solid #2f8a62;border-radius:12px;padding:18px;margin-top:14px}
+.ok a{color:var(--gold2);font-weight:700}
+.err{color:#ff9a9a;font-size:14px;min-height:20px;margin-top:8px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.me{display:flex;gap:16px;align-items:center;margin-top:18px}
+.me img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold)}
+.lines p{margin:0 0 12px;font-size:18px;line-height:1.55}
+footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
+@media(max-width:860px){.hero,.split{grid-template-columns:minmax(0,1fr)}.photo{aspect-ratio:16/11;order:-1}.cards{grid-template-columns:minmax(0,1fr)}}
+</style></head><body>
+<div class="wrap top"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><a href="#form">לסילבוס</a></div>
+<section class="wrap hero">
+<div><span class="tag">הכשרת יועצים עסקיים · מחזור דצמבר</span>
+<h1>הסילבוס המלא<br><b>3 חודשים שהופכים ניסיון למקצוע</b></h1>
+<p class="lead">לומדים. רואים. מלווים. כל מפגש, כל נושא וכל משימה של הכשרת היועצים של הכפלה עסקית, במסמך אחד.</p>
+<ul class="facts"><li>3 חודשים<span>משך ההכשרה</span></li><li>12+12+12<span>מפגשים</span></li><li>3 עסקים<span>שאתם מלווים</span></li><li>10 מקומות<span>בהפרדה מלאה</span></li></ul>
+<a class="btn" href="#form">שלחו לי את הסילבוס &#8592;</a></div>
+<div class="photo"><img src="../hachshara-event.jpg" alt="מפגש של הכפלה עסקית"><p><b>פותחים ב-30.12</b>ריש לקיש 4, בית שמש</p></div>
+</section>
+<section class="band"><div class="wrap"><h2>שלושה עולמות. שיטה אחת.</h2><p class="sub">מה תמצאו בסילבוס.</p>
+<div class="cards">
+<div class="card"><b>אימון מנטלי</b><h3>איך מזיזים אנשים</h3><p>לפני שמכפילים עסק, מכפילים את האדם שמוביל אותו.</p></div>
+<div class="card"><b>AI מאפס לעסק מלא</b><h3>צוות שעובד בשבילכם</h3><p>אווטאר, סוכנים, מנכ"ל AI. בונים אצלכם, ואחר כך אצל הלקוחות.</p></div>
+<div class="card"><b>ייעוץ עסקי</b><h3>שיטת הכפלה עסקית</h3><p>שיקוף, תשתית, מוצר והצעה, מכירות ושיווק. בסדר הזה.</p></div>
+</div></div></section>
+<section class="band" style="background:#0b0c0c;color:#f4efe2" id="form"><div class="wrap split">
+<div class="lines"><p>ידע לא חסר לכם.</p><p><b>חסר ניסיון.</b></p><p>בהכשרה הזו לומדים,<br>רואים אותי מכפיל עסק בלייב,<br>ומלווים 3 עסקים משלכם.</p><p>הכל כתוב בסילבוס.</p></div>
+<div class="form"><h2>קבלו את הסילבוס המלא</h2><p class="s">הסילבוס נשלח למייל, ואתם מצטרפים לניוזלטר של איתמר.</p>
+<form id="lead" novalidate><label class="f">שם מלא<input name="name" autocomplete="name" required></label>
+<label class="f">טלפון<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+<label class="f">מייל<input name="email" type="email" autocomplete="email" required></label>
+<label class="c"><input type="checkbox" name="consent">אני מאשר/ת לקבל מהכפלה עסקית עדכונים, תוכן והצעות במייל ובוואטסאפ, כולל הניוזלטר. אפשר להסיר בכל רגע.</label>
+<button class="btn" type="submit">שלחו לי את הסילבוס &#8592;</button><div class="err" id="err" role="alert"></div></form>
+<div class="ok" id="ok" role="status"><b style="font-size:20px">הסילבוס בדרך למייל שלכם.</b><p style="margin:8px 0 12px">רוצים כבר עכשיו? הנה הוא:</p><a class="btn" style="font-size:16px" href="../hachshara-syllabus.pdf" target="_blank" rel="noopener">לסילבוס המלא (PDF) &#8592;</a><p style="margin:12px 0 0">ומהיום תקבלו ממני את הניוזלטר, פעמיים בשבוע.</p><p style="margin:12px 0 0"><a class="btn" id="wa" style="display:none;font-size:16px" href="#">שליחת הפרטים בוואטסאפ</a></p></div>
+</div></div></section>
+<footer>הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
+<script>
+{
+const K='%%CRM_KEY%%';
+const CONFIG={endpoint:'https://hakfala-leads.vercel.app/api/lead',crmKey:K.indexOf('%%')===0?'':K,src:'hachshara-syllabus',wa:'972533315315'};
+const f=document.getElementById('lead'),ok=document.getElementById('ok'),er=document.getElementById('err');
+f.addEventListener('submit',async e=>{e.preventDefault();er.textContent='';
+ const d=Object.fromEntries(new FormData(f));
+ if(!d.name||!d.phone||!d.email){er.textContent='צריך שם, טלפון ומייל';return}
+ if(!f.consent.checked){er.textContent='צריך לאשר קבלת עדכונים';return}
+ const note='בקשת סילבוס הכשרת יועצים';let sent=false;
+ if(CONFIG.crmKey){try{await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:(()=>{const q=new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note,consent:'1'});new URLSearchParams(location.search).forEach((v,k)=>{if(/^utm_/.test(k))q.set(k,v)});return q.toString()})()});sent=true}catch(x){}}
+ f.style.display='none';ok.style.display='block';
+ if(!sent){const t=encodeURIComponent(note+'\nשם: '+d.name+'\nטלפון: '+d.phone+'\nמייל: '+d.email);document.getElementById('wa').href='https://wa.me/'+CONFIG.wa+'?text='+t;document.getElementById('wa').style.display='inline-flex'}
+});
+}
+</script></body></html>

@@ -32,6 +32,10 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ github.event.repository.name }}
         run: npm run build
+      - name: Inject CRM key into landing pages
+        env:
+          CRM_KEY: ${{ secrets.CRM_KEY }}
+        run: node scripts/inject-crm-key.mjs
       - name: Add .nojekyll
         run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

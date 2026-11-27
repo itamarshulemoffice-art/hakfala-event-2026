@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>וובינר חינם: איך מכפילים את העסק בעידן ה-AI</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק -->
+<style>
+/*
+VOICE: איתמר. חד, ישיר, קצר. דף אחד, פעולה אחת.
+IDEA: הזמנה לחדר: שחור, זהב, ואדם אחד שמביט בך.
+PICTURE: התמונה של איתמר, גדולה, ליד ההבטחה.
+COLOUR and TYPE: שחור וזהב של הכפלה עסקית, Heebo כבד.
+LAYOUT: הבטחה וטופס למעלה, 3 כרטיסים, טופס שוב בסוף.
+*/
+:root{color-scheme:light;--gold:#c9a44b;--gold2:#e8cf7a;--ink:#0b0c0c;--paper:#faf7f0}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--ink);color:#f4efe2;font:17px/1.6 "Heebo",Arial,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.top img{height:46px}
+.top a{font-weight:700;font-size:15px;text-decoration:none;border:1px solid #3a3d3b;border-radius:999px;padding:9px 16px}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;padding:24px 0 56px}
+.tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:14px;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;margin:0 0 16px;font-weight:900;text-wrap:balance}
+h1 b{background:linear-gradient(90deg,#F8E592,#C9A44B,#B8913A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:#d8d2c4;margin:0 0 22px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+.facts li{border:1px solid #3a3d3b;border-radius:10px;padding:9px 14px;font-weight:700;font-size:15px}
+.facts li span{display:block;font-weight:400;font-size:12.5px;color:#a9a397}
+.photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#1a1c1b}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.photo:after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(11,12,12,.85))}
+.photo p{position:absolute;bottom:14px;right:16px;left:16px;margin:0;z-index:1;font-size:14px;color:#e9e3d6}
+.photo p b{display:block;font-size:18px;color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#111;font-weight:900;font-size:19px;border:0;border-radius:12px;padding:16px 26px;min-height:56px;cursor:pointer;text-decoration:none}
+.btn:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.band{background:var(--paper);color:#141615;padding:56px 0}
+.band h2{font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:0 0 8px;font-weight:900}
+.band .sub{color:#5e5b54;margin:0 0 26px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e6dfcc;border-top:4px solid var(--gold);border-radius:12px;padding:20px}
+.card b{display:block;font-size:13px;color:#9a7a2c;margin-bottom:4px}
+.card h3{margin:0 0 6px;font-size:20px;line-height:1.2}
+.card p{margin:0;font-size:15.5px;color:#4a4740}
+.form{background:#141615;border:1px solid #2b2e2c;border-radius:16px;padding:26px;max-width:560px}
+.form h2{margin:0 0 4px;font-size:26px;font-weight:900}
+.form p.s{margin:0 0 16px;color:#b9b3a6;font-size:15px}
+label.f{display:block;font-size:14px;color:#cfc9bb;margin:0 0 12px}
+label.f input{display:block;width:100%;margin-top:5px;font:16px Heebo,Arial;padding:13px 14px;border-radius:10px;border:1px solid #3a3d3b;background:#0b0c0c;color:#fff}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#b9b3a6;margin:4px 0 16px}
+label.c input{width:20px;height:20px;accent-color:var(--gold);flex:none;margin-top:2px}
+.form .btn{width:100%}
+.ok{display:none;background:#14281c;border:1px solid #2f8a62;border-radius:12px;padding:18px;margin-top:14px}
+.ok a{color:var(--gold2);font-weight:700}
+.err{color:#ff9a9a;font-size:14px;min-height:20px;margin-top:8px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.me{display:flex;gap:16px;align-items:center;margin-top:18px}
+.me img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold)}
+.lines p{margin:0 0 12px;font-size:18px;line-height:1.55}
+footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
+@media(max-width:860px){.hero,.split{grid-template-columns:minmax(0,1fr)}.photo{aspect-ratio:16/11;order:-1}.cards{grid-template-columns:minmax(0,1fr)}}
+</style></head><body>
+<div class="wrap top"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><a href="#form">שמרו לי מקום</a></div>
+<section class="wrap hero">
+<div><span class="tag">וובינר חינם · 90 דקות</span>
+<h1 id="mh">איך מכפילים את העסק<br><b>בעידן ה-AI?</b></h1>
+<p class="lead" id="ml">6 מנגנוני ההכפלה, ומה ש-AI לא יעשה בשבילכם. 90 דקות בזום עם איתמר שולם: בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע.</p>
+<ul class="facts"><li>יום שני, 30.11<span>תאריך</span></li><li>20:30<span>שעה</span></li><li>בזום<span>מכל מקום</span></li><li>חינם<span>מספר המקומות בזום מוגבל</span></li></ul>
+<a class="btn" href="#form">שמרו לי מקום &#8592;</a></div>
+<div class="photo"><img src="../hachshara-itamar.webp" alt="איתמר שולם"><p><b>איתמר שולם</b>מייסד הכפלה עסקית · 13 שנים במכירות</p></div>
+</section>
+<section class="band"><div class="wrap"><h2>מה תקבלו ב-90 הדקות האלה</h2><p class="sub">ידע לבד לא מניע אנשים לפעולה. בוובינר תראו מה כן.</p>
+<div class="cards">
+<div class="card"><b>1</b><h3>6 מנגנוני ההכפלה</h3><p>בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע. כל אחד בשלושה רבדים: מקצועי, מנטלי, עסקי.</p></div>
+<div class="card"><b>2</b><h3>בוגרים עולים לליב</h3><p>בוגרים של הכשרת היועצים מספרים מאיפה הם התחילו, ומה באמת הזיז אותם לפעולה.</p></div>
+<div class="card"><b>3</b><h3>מפת ההכפלה במתנה</h3><p>למי שנשאר עד הסוף: איפה העסק שלכם תקוע, ואיזה מנגנון להפעיל קודם.</p></div>
+</div></div></section>
+<section class="band" style="background:#0b0c0c;color:#f4efe2" id="form"><div class="wrap split">
+<div class="lines"><p>מי שמגיע, יודע.</p><p>מי שלא...<br>שומע מאחרים.</p><p>90 דקות.<br>יום שני, 30.11, 20:30.<br>בזום.</p><div class="me"><img src="../hachshara-itamar.webp" alt=""><div><b>איתמר שולם</b><br><span style="color:#a9a397">נתראה בזום</span></div></div></div>
+<div class="form"><h2>שמרו לי מקום בזום</h2><p class="s">הקישור לזום יישלח אליכם במייל ובוואטסאפ.</p>
+<form id="lead" novalidate><label class="f">שם מלא<input name="name" autocomplete="name" required></label>
+<label class="f">טלפון<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+<label class="f">מייל<input name="email" type="email" autocomplete="email" required></label>
+<label class="c"><input type="checkbox" name="consent">אני מאשר/ת לקבל מהכפלה עסקית עדכונים, תוכן והצעות במייל ובוואטסאפ, כולל הניוזלטר. אפשר להסיר בכל רגע.</label>
+<button class="btn" type="submit">אני נרשם &#8592;</button><div class="err" id="err" role="alert"></div></form>
+<div class="ok" id="ok" role="status"><b style="font-size:20px">נרשמתם. נתראה ביום שני, 30.11, ב-20:30.</b><p style="margin:8px 0 0">הקישור לזום יגיע אליכם במייל ובוואטסאפ לפני המפגש. כדי לא לפספס, שמרו את המספר 053-3315315.</p><p style="margin:12px 0 0"><a class="btn" id="wa" style="display:none;font-size:16px" href="#">שליחת הפרטים בוואטסאפ</a></p></div>
+</div></div></section>
+<footer>הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
+<script>
+{
+const M={
+ '1':['איך מכפילים את העסק<br><b>בעידן ה-AI?</b>','6 מנגנוני ההכפלה, ומה ש-AI לא יעשה בשבילכם. 90 דקות בזום עם איתמר שולם: בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע.','איך מכפילים את העסק בעידן ה-AI'],
+ '2':['בעידן ה-AI,<br>מי צריך <b>יועצים עסקיים?</b>','ה-AI נותן לכולם ידע. אבל ידע לבד לא מניע אנשים לפעולה. 90 דקות בזום עם איתמר שולם: 6 מנגנוני ההכפלה, ומה עושה מי שמזיז אנשים מנקודה A לנקודה B.','בעידן ה-AI, מי צריך יועצים עסקיים?'],
+ '3':['ה-AI: <b>מכפיל</b><br>או <b>מפיל?</b>','אותו כלי מכפיל עסק אחד ומפיל עסק אחר. 90 דקות בזום עם איתמר שולם: 6 מנגנוני ההכפלה, ואיך דואגים שה-AI יעבוד בשבילכם.','ה-AI: מכפיל או מפיל?'],
+ '4':['תוך כמה זמן<br><b>AI מחליף אותך?</b>','ה-AI מחליף את מי שרק מעביר מידע. 90 דקות בזום עם איתמר שולם: 6 מנגנוני ההכפלה, ומה ש-AI לא יעשה בשבילכם.','תוך כמה זמן AI מחליף אותך?']};
+const q=new URLSearchParams(location.search);let m=q.get('m')||'';
+if(!M[m]){const c=(q.get('utm_campaign')||'').match(/m([1-4])/);m=c?c[1]:''}
+if(M[m]){window.MSG=m;document.getElementById('mh').innerHTML=M[m][0];document.getElementById('ml').textContent=M[m][1];document.title='וובינר חינם: '+M[m][2]}
+}
+{
+const K='%%CRM_KEY%%';
+const CONFIG={endpoint:'https://hakfala-leads.vercel.app/api/lead',crmKey:K.indexOf('%%')===0?'':K,src:'hachshara-webinar',wa:'972533315315'};
+const f=document.getElementById('lead'),ok=document.getElementById('ok'),er=document.getElementById('err');
+f.addEventListener('submit',async e=>{e.preventDefault();er.textContent='';
+ const d=Object.fromEntries(new FormData(f));
+ if(!d.name||!d.phone||!d.email){er.textContent='צריך שם, טלפון ומייל';return}
+ if(!f.consent.checked){er.textContent='צריך לאשר קבלת עדכונים';return}
+ const note='הרשמה לוובינר 30.11'+(window.MSG?' · מסר '+window.MSG:'');let sent=false;
+ if(CONFIG.crmKey){try{await fetch(CONFIG.endpoint+'?k='+encodeURIComponent(CONFIG.crmKey)+'&src='+encodeURIComponent(CONFIG.src),{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:(()=>{const q=new URLSearchParams({name:d.name,phone:d.phone,email:d.email,note,consent:'1'});new URLSearchParams(location.search).forEach((v,k)=>{if(/^utm_/.test(k))q.set(k,v)});return q.toString()})()});sent=true}catch(x){}}
+ f.style.display='none';ok.style.display='block';
+ if(!sent){const t=encodeURIComponent(note+'\nשם: '+d.name+'\nטלפון: '+d.phone+'\nמייל: '+d.email);document.getElementById('wa').href='https://wa.me/'+CONFIG.wa+'?text='+t;document.getElementById('wa').style.display='inline-flex'}
+});
+}
+</script></body></html>
