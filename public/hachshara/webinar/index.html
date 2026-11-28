@@ -1,89 +1,178 @@
 <!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>וובינר חינם: איך מכפילים את העסק בעידן ה-AI</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<title>וובינר חינם: איך מכפילים את העסק בעידן ה-AI</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700;800&display=swap" rel="stylesheet">
 <!-- Meta Pixel / Google tag: להדביק כאן את הקודים מיצחק -->
 <style>
-/*
-VOICE: איתמר. חד, ישיר, קצר. דף אחד, פעולה אחת.
-IDEA: הזמנה לחדר: שחור, זהב, ואדם אחד שמביט בך.
-PICTURE: התמונה של איתמר, גדולה, ליד ההבטחה.
-COLOUR and TYPE: שחור וזהב של הכפלה עסקית, Heebo כבד.
-LAYOUT: הבטחה וטופס למעלה, 3 כרטיסים, טופס שוב בסוף.
-*/
-:root{color-scheme:light;--gold:#c9a44b;--gold2:#e8cf7a;--ink:#0b0c0c;--paper:#faf7f0}
+:root{color-scheme:light;--navy:#1d2b46;--navy2:#14203a;--gold:#d4b160;--goldA:#ecc978;--goldB:#bd9b5e;--grey:#f4f4f4;--text:#333;--dark:#1e1e1e}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--ink);color:#f4efe2;font:17px/1.6 "Heebo",Arial,sans-serif;overflow-x:clip}
+body{margin:0;background:#fff;color:var(--text);font:18px/1.6 "Assistant",Arial,sans-serif;overflow-x:clip}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
-.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.top img{height:46px}
-.top a{font-weight:700;font-size:15px;text-decoration:none;border:1px solid #3a3d3b;border-radius:999px;padding:9px 16px}
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;padding:24px 0 56px}
-.tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:14px;border-radius:999px;padding:6px 14px;margin-bottom:16px}
-h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;margin:0 0 16px;font-weight:900;text-wrap:balance}
-h1 b{background:linear-gradient(90deg,#F8E592,#C9A44B,#B8913A);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:19px;color:#d8d2c4;margin:0 0 22px;max-width:34em}
-.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
-.facts li{border:1px solid #3a3d3b;border-radius:10px;padding:9px 14px;font-weight:700;font-size:15px}
-.facts li span{display:block;font-weight:400;font-size:12.5px;color:#a9a397}
-.photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#1a1c1b}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:top}
-.photo:after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(11,12,12,.85))}
-.photo p{position:absolute;bottom:14px;right:16px;left:16px;margin:0;z-index:1;font-size:14px;color:#e9e3d6}
-.photo p b{display:block;font-size:18px;color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#111;font-weight:900;font-size:19px;border:0;border-radius:12px;padding:16px 26px;min-height:56px;cursor:pointer;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 max(5vw,16px)}
+h1,h2,h3{font-weight:800;line-height:1.2;margin:0;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,var(--goldA),var(--goldB));color:var(--navy);font:800 19px/1.2 "Assistant",Arial,sans-serif;border:0;border-radius:3px;padding:16px 32px;min-height:56px;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(189,155,94,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--goldA);border:2px solid var(--gold);box-shadow:none}
 .btn:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px}
-.band{background:var(--paper);color:#141615;padding:56px 0}
-.band h2{font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:0 0 8px;font-weight:900}
-.band .sub{color:#5e5b54;margin:0 0 26px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{background:#fff;border:1px solid #e6dfcc;border-top:4px solid var(--gold);border-radius:12px;padding:20px}
-.card b{display:block;font-size:13px;color:#9a7a2c;margin-bottom:4px}
-.card h3{margin:0 0 6px;font-size:20px;line-height:1.2}
-.card p{margin:0;font-size:15.5px;color:#4a4740}
-.form{background:#141615;border:1px solid #2b2e2c;border-radius:16px;padding:26px;max-width:560px}
-.form h2{margin:0 0 4px;font-size:26px;font-weight:900}
-.form p.s{margin:0 0 16px;color:#b9b3a6;font-size:15px}
-label.f{display:block;font-size:14px;color:#cfc9bb;margin:0 0 12px}
-label.f input{display:block;width:100%;margin-top:5px;font:16px Heebo,Arial;padding:13px 14px;border-radius:10px;border:1px solid #3a3d3b;background:#0b0c0c;color:#fff}
-label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#b9b3a6;margin:4px 0 16px}
-label.c input{width:20px;height:20px;accent-color:var(--gold);flex:none;margin-top:2px}
+/* top bar */
+.bar{background:var(--navy);border-bottom:1px solid rgba(212,177,96,.25)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.bar img{height:44px;display:block}
+.bar .btn{min-height:42px;padding:9px 20px;font-size:16px}
+/* hero */
+.hero{background:radial-gradient(circle at 70% 40%,var(--navy) 0%,#000 100%);color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:end;padding-top:56px}
+.hero .txt{padding-bottom:64px}
+.kick{display:inline-block;color:var(--gold);font-weight:700;font-size:17px;letter-spacing:.3px;border-bottom:2px solid var(--gold);padding-bottom:4px;margin-bottom:18px}
+.hero h1{color:var(--gold);font-size:clamp(36px,5.2vw,60px);line-height:1.12;margin-bottom:18px}
+.hero h1 b{color:#fff;font-weight:800}
+.quote{color:var(--gold);font-weight:200;font-size:clamp(20px,2.2vw,24px);line-height:1.4;margin:0 0 14px}
+.hero .lead{color:#e6e9f0;font-size:17px;margin:0 0 28px;max-width:34em}
+.hero .pic{align-self:end;display:flex;justify-content:center}
+.hero .pic img{width:100%;max-width:400px;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+/* stats */
+.stats{background:#fff;padding:42px 0;border-bottom:1px solid #eee}
+.stats ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stats li{text-align:center;padding:6px 10px;border-inline-start:1px solid #e2e2e2}
+.stats li:first-child{border:0}
+.stats b{display:block;color:var(--navy);font-size:clamp(40px,5vw,60px);font-weight:800;line-height:1}
+.stats b i{color:var(--gold);font-style:normal}
+.stats span{display:block;color:#666;font-size:17px;margin-top:8px;line-height:1.3}
+/* section titles */
+.sec{padding:80px 0}
+.grey{background:var(--grey)}
+.ttl{display:flex;align-items:center;justify-content:center;gap:22px;text-align:center;margin-bottom:12px}
+.ttl:before,.ttl:after{content:"";flex:0 0 70px;height:3px;background:var(--gold)}
+.ttl h2{color:var(--navy);font-size:clamp(28px,3.4vw,38px)}
+.sub{text-align:center;color:#555;font-size:19px;margin:0 auto 44px;max-width:40em}
+.small-kick{display:block;text-align:center;color:var(--goldB);font-weight:800;font-size:21px;margin-bottom:8px}
+/* story */
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.story .img{position:relative;background:var(--navy);border-radius:4px;aspect-ratio:4/4.4;overflow:hidden;box-shadow:0 18px 40px rgba(29,43,70,.25)}
+.story .img img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%}
+.story .img span{position:absolute;bottom:0;inset-inline:0;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;padding:40px 20px 16px;font-size:15px}
+.story .img span b{display:block;font-size:20px;color:var(--gold)}
+.story h2{color:var(--navy);font-size:clamp(26px,3vw,34px);margin-bottom:18px;display:flex;gap:16px;align-items:center}
+.story h2:before{content:"";flex:0 0 50px;height:3px;background:var(--gold)}
+.story p{margin:0 0 14px;font-size:18.5px;color:#444}
+.story p strong{color:var(--navy)}
+.layers{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0;padding:0;list-style:none}
+.layers li{background:#fff;border:1px solid #e3e3e3;border-top:3px solid var(--gold);padding:10px 18px;font-weight:700;color:var(--navy);border-radius:3px}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.card{background:#fff;border-radius:4px;box-shadow:0 8px 30px rgba(29,43,70,.09);overflow:hidden;display:flex;flex-direction:column}
+.card .top{background:radial-gradient(circle at 30% 30%,var(--navy),#0b1222);aspect-ratio:16/8;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:64px;font-weight:800}
+.card .body{padding:22px 24px 26px}
+.card h3{color:var(--navy);font-size:22px;margin-bottom:8px}
+.card p{margin:0;color:#555;font-size:16.5px}
+/* steps */
+.steps{background:var(--navy);color:#fff;padding:72px 0}
+.steps .ttl h2{color:#fff}
+.steps .sub{color:#c7cfdd}
+.stepgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.step{border:1px solid rgba(212,177,96,.35);border-radius:4px;padding:24px 20px;text-align:center;background:rgba(255,255,255,.03)}
+.step em{display:block;font-style:normal;color:var(--gold);font-weight:800;font-size:15px;letter-spacing:.5px;margin-bottom:6px}
+.step h3{font-size:22px;margin-bottom:8px}
+.step p{margin:0;color:#c7cfdd;font-size:16px}
+/* wave + form */
+.wave{display:block;width:100%;height:70px;background:#fff}
+.join{background:radial-gradient(circle at 50% 20%,#1e1e1e 0%,var(--navy) 100%);color:#fff;padding:20px 0 90px}
+.join .ttl h2{color:var(--gold)}
+.join .sub{color:#d5dae4}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.lines p{margin:0 0 14px;font-size:22px;line-height:1.5;font-weight:200}
+.lines p b{font-weight:800;color:var(--gold)}
+.me{display:flex;gap:16px;align-items:center;margin-top:22px}
+.me img{width:70px;height:70px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold);background:#fff}
+.form{background:#fff;color:var(--text);border-radius:4px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.45);border-top:5px solid var(--gold)}
+.form h3{margin:0 0 4px;font-size:26px;color:var(--navy)}
+.form p.s{margin:0 0 18px;color:#666;font-size:16px}
+label.f{display:block;font-size:15px;font-weight:600;color:var(--navy);margin:0 0 12px}
+label.f input{display:block;width:100%;margin-top:5px;font:17px "Assistant",Arial;padding:13px 14px;border-radius:3px;border:1px solid #cfd4dc;background:#fafbfc;color:#111}
+label.f input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(212,177,96,.25)}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#555;margin:4px 0 18px}
+label.c input{width:20px;height:20px;accent-color:var(--goldB);flex:none;margin-top:2px}
 .form .btn{width:100%}
-.ok{display:none;background:#14281c;border:1px solid #2f8a62;border-radius:12px;padding:18px;margin-top:14px}
-.ok a{color:var(--gold2);font-weight:700}
-.err{color:#ff9a9a;font-size:14px;min-height:20px;margin-top:8px}
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
-.me{display:flex;gap:16px;align-items:center;margin-top:18px}
-.me img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold)}
-.lines p{margin:0 0 12px;font-size:18px;line-height:1.55}
-footer{padding:28px 0;color:#8d887c;font-size:13.5px;text-align:center}
-@media(max-width:860px){.hero,.split{grid-template-columns:minmax(0,1fr)}.photo{aspect-ratio:16/11;order:-1}.cards{grid-template-columns:minmax(0,1fr)}}
+.ok{display:none;background:#eef8f2;border:1px solid #2f8a62;border-radius:4px;padding:18px;margin-top:4px;color:#183a28}
+.err{color:#c0392b;font-size:15px;min-height:20px;margin-top:8px}
+footer{background:var(--dark);color:#9a9a9a;font-size:14px;text-align:center;padding:34px 0}
+footer img{height:40px;display:block;margin:0 auto 12px}
+@media(max-width:900px){
+ .hero .wrap,.story,.split{grid-template-columns:minmax(0,1fr)}
+ .hero .wrap{padding-top:36px;gap:0}
+ .hero .txt{padding-bottom:24px;text-align:center}
+ .hero .lead{margin-inline:auto}
+ .hero .pic img{max-width:280px}
+ .stats ul{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+ .stats li:nth-child(3){border:0}
+ .cards,.stepgrid{grid-template-columns:minmax(0,1fr)}
+ .story .img{display:none}
+ .ttl:before,.ttl:after{flex-basis:28px}
+ .sec{padding:60px 0}
+ .bar .btn{display:none}
+}
 </style></head><body>
-<div class="wrap top"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><a href="#form">שמרו לי מקום</a></div>
-<section class="wrap hero">
-<div><span class="tag">וובינר חינם · 90 דקות</span>
+<header class="bar"><div class="wrap"><img src="../hachshara-logo.webp" alt="הכפלה עסקית"><a class="btn ghost" href="#form">שמרו לי מקום</a></div></header>
+
+<section class="hero"><div class="wrap">
+<div class="txt"><span class="kick">וובינר חינם · יום שני 30.11 · 20:30 · בזום</span>
 <h1 id="mh">איך מכפילים את העסק<br><b>בעידן ה-AI?</b></h1>
+<p class="quote">״ה-AI נותן לכולם ידע. ידע לבד לא מזיז אף אחד לפעולה.״</p>
 <p class="lead" id="ml">6 מנגנוני ההכפלה, ומה ש-AI לא יעשה בשבילכם. 90 דקות בזום עם איתמר שולם: בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע.</p>
-<ul class="facts"><li>יום שני, 30.11<span>תאריך</span></li><li>20:30<span>שעה</span></li><li>בזום<span>מכל מקום</span></li><li>חינם<span>מספר המקומות בזום מוגבל</span></li></ul>
-<a class="btn" href="#form">שמרו לי מקום &#8592;</a></div>
-<div class="photo"><img src="../hachshara-itamar.webp" alt="איתמר שולם"><p><b>איתמר שולם</b>מייסד הכפלה עסקית · 13 שנים במכירות</p></div>
-</section>
-<section class="band"><div class="wrap"><h2>מה תקבלו ב-90 הדקות האלה</h2><p class="sub">ידע לבד לא מניע אנשים לפעולה. בוובינר תראו מה כן.</p>
-<div class="cards">
-<div class="card"><b>1</b><h3>6 מנגנוני ההכפלה</h3><p>בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע. כל אחד בשלושה רבדים: מקצועי, מנטלי, עסקי.</p></div>
-<div class="card"><b>2</b><h3>בוגרים עולים לליב</h3><p>בוגרים של הכשרת היועצים מספרים מאיפה הם התחילו, ומה באמת הזיז אותם לפעולה.</p></div>
-<div class="card"><b>3</b><h3>מפת ההכפלה במתנה</h3><p>למי שנשאר עד הסוף: איפה העסק שלכם תקוע, ואיזה מנגנון להפעיל קודם.</p></div>
+<a class="btn" href="#form">שמרו לי מקום בזום &#8592;</a></div>
+<div class="pic"><img src="../hachshara-itamar.webp" alt="איתמר שולם"></div>
+</div></section>
+
+<section class="stats" aria-label="הוובינר במספרים"><div class="wrap"><ul>
+<li><b>6</b><span>מנגנוני הכפלה</span></li>
+<li><b>3</b><span>רבדים: מקצועי, מנטלי, עסקי</span></li>
+<li><b>90</b><span>דקות בזום</span></li>
+<li><b>13<i>+</i></b><span>שנים במכירות</span></li>
+</ul></div></section>
+
+<section class="sec grey"><div class="wrap story">
+<div class="img"><img src="../hachshara-itamar.webp" alt=""><span><b>איתמר שולם</b>מייסד הכפלה עסקית</span></div>
+<div><span class="small-kick" style="text-align:start">מאחורי הוובינר:</span>
+<h2>למה דווקא עכשיו, בעידן ה-AI?</h2>
+<p>כל בעל עסק יכול היום לשאול את ה-AI מה לעשות, ולקבל תשובה טובה תוך שנייה. <strong>ובכל זאת, רוב העסקים נשארים באותו מקום.</strong></p>
+<p>כי ידע לבד לא מזיז אנשים. מה שמזיז אותם זה עבודה על שלושה רבדים ביחד, וזה בדיוק מה ששיטת הכפלה עסקית עושה.</p>
+<ul class="layers"><li>מקצועי</li><li>מנטלי</li><li>עסקי</li></ul>
 </div></div></section>
-<section class="band" style="background:#0b0c0c;color:#f4efe2" id="form"><div class="wrap split">
-<div class="lines"><p>מי שמגיע, יודע.</p><p>מי שלא...<br>שומע מאחרים.</p><p>90 דקות.<br>יום שני, 30.11, 20:30.<br>בזום.</p><div class="me"><img src="../hachshara-itamar.webp" alt=""><div><b>איתמר שולם</b><br><span style="color:#a9a397">נתראה בזום</span></div></div></div>
-<div class="form"><h2>שמרו לי מקום בזום</h2><p class="s">הקישור לזום יישלח אליכם במייל ובוואטסאפ.</p>
+
+<section class="sec"><div class="wrap">
+<div class="ttl"><h2>מה תקבלו ב-90 הדקות האלה</h2></div>
+<p class="sub">לא עוד הרצאה של מידע. 90 דקות שמראות מה באמת מזיז עסק קדימה.</p>
+<div class="cards">
+<div class="card"><div class="top">6</div><div class="body"><h3>6 מנגנוני ההכפלה</h3><p>בעל העסק, פיננסים, מוצר והצעה, שיווק ומכירות, סוכני AI ומערכת ביצוע. כל אחד בשלושה רבדים: מקצועי, מנטלי, עסקי.</p></div></div>
+<div class="card"><div class="top">LIVE</div><div class="body"><h3>בוגרים עולים לליב</h3><p>בוגרים של הכשרת היועצים מספרים מאיפה הם התחילו, ומה באמת הזיז אותם לפעולה.</p></div></div>
+<div class="card"><div class="top">&#127873;</div><div class="body"><h3>מפת ההכפלה במתנה</h3><p>למי שנשאר עד הסוף: איפה העסק שלכם תקוע, ואיזה מנגנון להפעיל קודם.</p></div></div>
+</div></div></section>
+
+<section class="steps"><div class="wrap">
+<div class="ttl"><h2>איך מגיעים? הנה השלבים:</h2></div>
+<p class="sub">ארבעה צעדים פשוטים, ואתם בפנים.</p>
+<div class="stepgrid">
+<div class="step"><em>שלב 1</em><h3>נרשמים</h3><p>שם, טלפון ומייל בטופס למטה.</p></div>
+<div class="step"><em>שלב 2</em><h3>שומרים את המספר</h3><p>053-3315315, כדי שהקישור לזום לא ילך לאיבוד.</p></div>
+<div class="step"><em>שלב 3</em><h3>מתחברים בזמן</h3><p>יום שני, 30.11, ב-20:30. מכל מקום.</p></div>
+<div class="step"><em>שלב 4</em><h3>נשארים עד הסוף</h3><p>ומקבלים את מפת ההכפלה במתנה.</p></div>
+</div>
+<p style="text-align:center;margin:40px 0 0"><a class="btn" href="#form">אני רוצה מקום בזום &#8592;</a></p>
+</div></section>
+
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:var(--navy)"><path d="M0 0h1440v28c-120 24-240 36-360 30S840 26 720 26 480 52 360 56 120 46 0 30z" fill="#fff"/><path d="M0 70V40c120 18 240 26 360 22s240-30 360-30 240 30 360 34 240-6 360-26v30z" fill="#1e1e1e"/></svg>
+<section class="join" id="form"><div class="wrap">
+<div class="ttl"><h2>הזמנה אישית לוובינר:</h2></div>
+<p class="sub">הקישור לזום יישלח אליכם במייל ובוואטסאפ.</p>
+<div class="split">
+<div class="lines"><p>מי שמגיע, <b>יודע.</b></p><p>מי שלא...<br>שומע מאחרים.</p><p><b>90 דקות.</b><br>יום שני, 30.11, 20:30.<br>בזום.</p><div class="me"><img src="../hachshara-itamar.webp" alt=""><div><b>איתמר שולם</b><br><span style="color:#c7cfdd">נתראה בזום</span></div></div></div>
+<div class="form"><h3>שמרו לי מקום בזום</h3><p class="s">חינם. מספר המקומות בזום מוגבל.</p>
 <form id="lead" novalidate><label class="f">שם מלא<input name="name" autocomplete="name" required></label>
 <label class="f">טלפון<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
 <label class="f">מייל<input name="email" type="email" autocomplete="email" required></label>
 <label class="c"><input type="checkbox" name="consent">אני מאשר/ת לקבל מהכפלה עסקית עדכונים, תוכן והצעות במייל ובוואטסאפ, כולל הניוזלטר. אפשר להסיר בכל רגע.</label>
 <button class="btn" type="submit">אני נרשם &#8592;</button><div class="err" id="err" role="alert"></div></form>
 <div class="ok" id="ok" role="status"><b style="font-size:20px">נרשמתם. נתראה ביום שני, 30.11, ב-20:30.</b><p style="margin:8px 0 0">הקישור לזום יגיע אליכם במייל ובוואטסאפ לפני המפגש. כדי לא לפספס, שמרו את המספר 053-3315315.</p><p style="margin:12px 0 0"><a class="btn" id="wa" style="display:none;font-size:16px" href="#">שליחת הפרטים בוואטסאפ</a></p></div>
-</div></div></section>
-<footer>הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
+</div></div></div></section>
+<footer><img src="../hachshara-logo.webp" alt="הכפלה עסקית">הכפלה עסקית · איתמר שולם · ריש לקיש 4, בית שמש · 053-3315315</footer>
 <script>
 {
 const M={
